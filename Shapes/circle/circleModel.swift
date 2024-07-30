@@ -7,8 +7,15 @@
 
 import Foundation
 protocol Shape{
+    
     var radius : Double { get }
     var pi : Double { get }
+    
+    func perimeter () -> Double
+    func area () -> Double
+    func volume() -> Double
+    func sideArea() -> Double
+    
     
 }
 
