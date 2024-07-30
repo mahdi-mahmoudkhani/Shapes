@@ -14,6 +14,10 @@ class SquareModel {
     init(withSide side: Double = 0) {
         self.side = side
     }
-
+    
+    func perimeter() -> Double {
+            return side * 4
+        }
+    
 }
 
