@@ -6,8 +6,11 @@
 //
 
 import Foundation
+protocol Shape{
+    
+}
 
-class CircleModel{
+class CircleModel : Shape{
     
     private (set) var radius : Double
     private let pi = (Double( Double.pi * 1000 )/1000)
