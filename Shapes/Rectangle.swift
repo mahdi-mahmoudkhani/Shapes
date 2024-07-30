@@ -6,3 +6,8 @@
 //
 
 import Foundation
+// Define the Shape protocol with area and perimeter methods
+protocol Shape {
+    func area() -> Double
+    func perimeter() -> Double
+}
