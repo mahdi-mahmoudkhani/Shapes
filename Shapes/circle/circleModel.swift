@@ -37,18 +37,18 @@ class CircleModel : CircleShapeable , CircleCalculable , SphereCalculable {
     
     
     init ( radius : Double ){
-            self.radius = radius
-        }
+        self.radius = radius
+    }
     
     
     func perimeter () -> Double {
-            return self.radius * self.pi * 2
-        }
+        return self.radius * self.pi * 2
+    }
     
     
     func area () -> Double {
-            return pow(self.radius , 2.0) * self.pi
-        }
+        return pow(self.radius , 2.0) * self.pi
+    }
     
     
     func volume() -> Double{
@@ -59,10 +59,10 @@ class CircleModel : CircleShapeable , CircleCalculable , SphereCalculable {
     func sideArea() -> Double {
         return pow(self.radius , 2.0) * self.pi * 4
     }
-        
+    
     
     // Method to display all the calculated data
-    func displayData(){
+    func displayDataofCircle(){
         print("Here was the Circle Data : Radius : \(self.radius)")
         
         print("The arae is : ")
@@ -70,6 +70,14 @@ class CircleModel : CircleShapeable , CircleCalculable , SphereCalculable {
         
         print("The perimeter is : ")
         print(perimeter())
+        
+        print("The pi we took is : ")
+        print(self.pi)
+        
+        
+    }
+    
+    func displayDataofSphere(){
         
         print("The volume of its sphere is : ")
         print(volume())
@@ -80,8 +88,5 @@ class CircleModel : CircleShapeable , CircleCalculable , SphereCalculable {
         print("The pi we took is : ")
         print(self.pi)
         
-        
     }
-    
-    
 }
