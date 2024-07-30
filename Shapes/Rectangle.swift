@@ -21,8 +21,8 @@ extension Shape {
 
 // Rectangle class conforming to the Shape protocol
 class Rectangle: Shape {
-    let width: Double
-    let height: Double
+    var width: Double
+    var height: Double
     
     // Initialize with width and height
     init(width: Double, height: Double) {
