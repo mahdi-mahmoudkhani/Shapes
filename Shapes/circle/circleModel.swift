@@ -9,20 +9,13 @@ import Foundation
 
 // Define a protocol for shapes that requires properties and methods related to shape calculations
 
-protocol Shapeable{
+protocol CircleShapeable{
     
     var radius : Double { get }
-    var pi : Double { get }
-    
-    func perimeter () -> Double
-    func area () -> Double
-    func volume() -> Double
-    func sideArea() -> Double
-    func displayData()
     
 }
 
-class CircleModel : Shapeable{
+class CircleModel : CircleShapeable{
     
     // Properties of the CircleModel
     private (set) var radius : Double
