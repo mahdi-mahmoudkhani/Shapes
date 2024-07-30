@@ -22,6 +22,13 @@ protocol CircleCalculable {
     
 }
 
+protocol SphereCalculable {
+    
+    func volume() -> Double
+    func sideArea() -> Double
+    
+}
+
 class CircleModel : CircleShapeable{
     
     // Properties of the CircleModel
