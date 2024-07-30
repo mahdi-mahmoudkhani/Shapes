@@ -33,7 +33,7 @@ class CircleModel : CircleShapeable , CircleCalculable , SphereCalculable {
     
     // Properties of the CircleModel
     private (set) var radius : Double
-    private let pi = (Double( Double.pi * 1000 )/1000)
+    private let pi = (Double( Double.pi * 100 )/100)
     
     
     init ( radius : Double ){
