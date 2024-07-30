@@ -15,6 +15,13 @@ protocol CircleShapeable{
     
 }
 
+protocol CircleCalculable {
+    
+    func area() -> Double
+    func perimeter() -> Double
+    
+}
+
 class CircleModel : CircleShapeable{
     
     // Properties of the CircleModel
