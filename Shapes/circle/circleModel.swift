@@ -9,7 +9,7 @@ import Foundation
 
 // Define a protocol for shapes that requires properties and methods related to shape calculations
 
-protocol Shape{
+protocol Shapeable{
     
     var radius : Double { get }
     var pi : Double { get }
@@ -22,7 +22,7 @@ protocol Shape{
     
 }
 
-class CircleModel : Shape{
+class CircleModel : Shapeable{
     
     // Properties of the CircleModel
     private (set) var radius : Double
