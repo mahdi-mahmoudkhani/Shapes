@@ -11,6 +11,14 @@ protocol Shape {
     func area() -> Double
     func perimeter() -> Double
 }
+
+// Extend the Shape protocol to provide default implementation
+extension Shape {
+    func description() -> String {
+        return "Area: \(area()), Perimeter: \(perimeter())"
+    }
+}
+
 // Rectangle class conforming to the Shape protocol
 class Rectangle: Shape {
     let width: Double
