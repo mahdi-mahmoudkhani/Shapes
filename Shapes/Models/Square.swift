@@ -19,5 +19,9 @@ class SquareModel {
             return side * 4
         }
     
+    func area() -> Double {
+        return pow(self.side, 2)
+    }
+    
 }
 
