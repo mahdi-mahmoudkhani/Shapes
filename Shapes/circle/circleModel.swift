@@ -15,7 +15,7 @@ protocol Shape{
     func area () -> Double
     func volume() -> Double
     func sideArea() -> Double
-    
+    func displayData()
     
 }
 
