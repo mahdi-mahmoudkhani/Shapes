@@ -39,4 +39,11 @@ class Rectangle: Shape {
     func perimeter() -> Double {
         return 2 * (width + height)
     }
+    // Provide description for the rectangle
+    func description() -> String {
+        return "Rectangle - Width: \(width), Height: \(height), Area: \(area()), Perimeter: \(perimeter())"
+    }
+
 }
+
+
