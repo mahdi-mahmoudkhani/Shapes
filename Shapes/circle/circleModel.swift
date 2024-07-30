@@ -24,5 +24,9 @@ class CircleModel{
             return pow(self.radius , 2.0) * self.pi
         }
     
+    func volume() -> Double{
+        return pow(self.radius , 3.0) * self.pi * 4/3
+    }
+    
         
 }
