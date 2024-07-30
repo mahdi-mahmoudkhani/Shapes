@@ -13,13 +13,9 @@ protocol Shape {
     func area() -> Double
 }
 
-class SquareModel: Shape {
+struct SquareModel: Shape {
     
     let side: Double
-    
-    init(withSide side: Double = 0) {
-        self.side = side
-    }
     
     func perimeter() -> Double {
         return side * 4
@@ -30,4 +26,3 @@ class SquareModel: Shape {
     }
     
 }
-
