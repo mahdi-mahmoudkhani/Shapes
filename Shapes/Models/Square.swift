@@ -7,7 +7,13 @@
 
 import Foundation
 
-class SquareModel {
+protocol Shape {
+    var side: Double { get }
+    func perimeter() -> Double
+    func area() -> Double
+}
+
+class SquareModel: Shape {
     
     private (set) var side: Double
     
@@ -16,7 +22,7 @@ class SquareModel {
     }
     
     func perimeter() -> Double {
-            return side * 4
+        return side * 4
         }
     
     func area() -> Double {
