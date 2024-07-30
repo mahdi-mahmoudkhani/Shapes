@@ -15,7 +15,7 @@ protocol Shape {
 
 class SquareModel: Shape {
     
-    private (set) var side: Double
+    let side: Double
     
     init(withSide side: Double = 0) {
         self.side = side
