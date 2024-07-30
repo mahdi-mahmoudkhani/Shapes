@@ -29,11 +29,11 @@ protocol SphereCalculable {
     
 }
 
-class CircleModel : CircleShapeable{
+class CircleModel : CircleShapeable , CircleCalculable , SphereCalculable {
     
     // Properties of the CircleModel
     private (set) var radius : Double
-    let pi = (Double( Double.pi * 1000 )/1000)
+    private let pi = (Double( Double.pi * 1000 )/1000)
     
     
     init ( radius : Double ){
