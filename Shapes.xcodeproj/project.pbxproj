@@ -13,6 +13,7 @@
 		1100FFD72C58BA390001AA91 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1100FFD62C58BA390001AA91 /* Base */; };
 		1100FFD92C58BA3A0001AA91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1100FFD82C58BA3A0001AA91 /* Assets.xcassets */; };
 		1100FFDC2C58BA3A0001AA91 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1100FFDB2C58BA3A0001AA91 /* Base */; };
+		1100FFE52C58BDD10001AA91 /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100FFE42C58BDD10001AA91 /* Square.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1100FFD82C58BA3A0001AA91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1100FFDB2C58BA3A0001AA91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1100FFDD2C58BA3A0001AA91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1100FFE42C58BDD10001AA91 /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		1100FFCE2C58BA390001AA91 /* Shapes */ = {
 			isa = PBXGroup;
 			children = (
+				1100FFE32C58BDB10001AA91 /* Models */,
 				1100FFCF2C58BA390001AA91 /* AppDelegate.swift */,
 				1100FFD12C58BA390001AA91 /* SceneDelegate.swift */,
 				1100FFD32C58BA390001AA91 /* ViewController.swift */,
@@ -65,6 +68,14 @@
 				1100FFDD2C58BA3A0001AA91 /* Info.plist */,
 			);
 			path = Shapes;
+			sourceTree = "<group>";
+		};
+		1100FFE32C58BDB10001AA91 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1100FFE42C58BDD10001AA91 /* Square.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1100FFE52C58BDD10001AA91 /* Square.swift in Sources */,
 				1100FFD42C58BA390001AA91 /* ViewController.swift in Sources */,
 				1100FFD02C58BA390001AA91 /* AppDelegate.swift in Sources */,
 				1100FFD22C58BA390001AA91 /* SceneDelegate.swift in Sources */,
