@@ -32,4 +32,27 @@ class CircleModel{
         return pow(self.radius , 2.0) * self.pi * 4
     }
         
+    
+    func displayData(){
+        print("Here was the Circle Data : Radius : \(self.radius)")
+        
+        print("The arae is : ")
+        print(area())
+        
+        print("The perimeter is : ")
+        print(perimeter())
+        
+        print("The volume of its sphere is : ")
+        print(volume())
+        
+        print("The side area of its sphere is : ")
+        print(sideArea())
+        
+        print("The pi we took is : ")
+        print(self.pi)
+        
+        
+    }
+    
+    
 }
