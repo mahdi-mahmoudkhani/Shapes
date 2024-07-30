@@ -9,4 +9,7 @@ import Foundation
 
 class CircleModel{
     
+    private (set) var radius : Double
+    private let pi = (Double( Double.pi * 1000 )/1000)
+    
 }
