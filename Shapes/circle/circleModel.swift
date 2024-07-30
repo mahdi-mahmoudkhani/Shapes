@@ -63,7 +63,7 @@ class CircleModel : CircleShapeable , CircleCalculable , SphereCalculable {
     
     
     // Method to display all the calculated data
-    func displayDataofCircle(){
+    func displayData(){
         print("Here was the Circle Data : Radius : \(self.radius)")
         
         print("The arae is : ")
@@ -71,11 +71,6 @@ class CircleModel : CircleShapeable , CircleCalculable , SphereCalculable {
         
         print("The perimeter is : ")
         print(perimeter())
-        
-        
-    }
-    
-    func displayDataofSphere(){
         
         print("The volume of its sphere is : ")
         print(volume())
@@ -85,4 +80,5 @@ class CircleModel : CircleShapeable , CircleCalculable , SphereCalculable {
         
         
     }
+    
 }
