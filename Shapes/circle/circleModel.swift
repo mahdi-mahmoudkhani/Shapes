@@ -20,5 +20,9 @@ class CircleModel{
             return self.radius * self.pi * 2
         }
     
+    func area () -> Double {
+            return pow(self.radius , 2.0) * self.pi
+        }
+    
         
 }
