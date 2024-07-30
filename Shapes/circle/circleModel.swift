@@ -7,13 +7,15 @@
 
 import Foundation
 protocol Shape{
+    var radius : Double { get }
+    var pi : Double { get }
     
 }
 
 class CircleModel : Shape{
     
     private (set) var radius : Double
-    private let pi = (Double( Double.pi * 1000 )/1000)
+    let pi = (Double( Double.pi * 1000 )/1000)
     
     init ( radius : Double ){
             self.radius = radius
