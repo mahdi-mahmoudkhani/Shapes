@@ -19,6 +19,7 @@ protocol CircleCalculable {
     
     func area() -> Double
     func perimeter() -> Double
+   
     
 }
 
@@ -71,9 +72,6 @@ class CircleModel : CircleShapeable , CircleCalculable , SphereCalculable {
         print("The perimeter is : ")
         print(perimeter())
         
-        print("The pi we took is : ")
-        print(self.pi)
-        
         
     }
     
@@ -85,8 +83,6 @@ class CircleModel : CircleShapeable , CircleCalculable , SphereCalculable {
         print("The side area of its sphere is : ")
         print(sideArea())
         
-        print("The pi we took is : ")
-        print(self.pi)
         
     }
 }
