@@ -91,6 +91,16 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
         ])
     }
     
+    /// Setup the stack view
+    private func setupStackView() {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 20
+        stackView.distribution = .fillProportionally
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackView)
+    }
+    
     
     
 }
