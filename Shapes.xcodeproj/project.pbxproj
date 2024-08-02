@@ -14,6 +14,7 @@
 		1100FFD92C58BA3A0001AA91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1100FFD82C58BA3A0001AA91 /* Assets.xcassets */; };
 		1100FFDC2C58BA3A0001AA91 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1100FFDB2C58BA3A0001AA91 /* Base */; };
 		B0A0E2F22C58DB5F00F6792C /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0E2F12C58DB5F00F6792C /* Rectangle.swift */; };
+		B0C043B12C5D3CD6008B9564 /* RectangleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C043B02C5D3CD6008B9564 /* RectangleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1100FFDB2C58BA3A0001AA91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1100FFDD2C58BA3A0001AA91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0A0E2F12C58DB5F00F6792C /* Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
+		B0C043B02C5D3CD6008B9564 /* RectangleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				1100FFCF2C58BA390001AA91 /* AppDelegate.swift */,
 				1100FFD12C58BA390001AA91 /* SceneDelegate.swift */,
+				B0C043B02C5D3CD6008B9564 /* RectangleViewController.swift */,
 				B0A0E2F12C58DB5F00F6792C /* Rectangle.swift */,
 				1100FFD32C58BA390001AA91 /* ViewController.swift */,
 				1100FFD52C58BA390001AA91 /* Main.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1100FFD42C58BA390001AA91 /* ViewController.swift in Sources */,
+				B0C043B12C5D3CD6008B9564 /* RectangleViewController.swift in Sources */,
 				1100FFD02C58BA390001AA91 /* AppDelegate.swift in Sources */,
 				1100FFD22C58BA390001AA91 /* SceneDelegate.swift in Sources */,
 				B0A0E2F22C58DB5F00F6792C /* Rectangle.swift in Sources */,
