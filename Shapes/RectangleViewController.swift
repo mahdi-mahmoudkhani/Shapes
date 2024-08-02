@@ -15,7 +15,7 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
     
     // MARK: - UI Elements
     
-    private let stacckView = UIStackView()
+    private let stackView = UIStackView()
     private let widthTextField = UITextField()
     private let heightTextField = UITextField()
     private let addButton = UIButton()
