@@ -1,0 +1,49 @@
+//
+//  Rectangle.swift
+//  Shapes
+//
+//  Created by Aref on 7/30/24.
+//
+
+import Foundation
+// Define the Shape protocol with area and perimeter methods
+protocol Shapeable {
+    func area() -> Double
+    func perimeter() -> Double
+}
+
+// Extend the Shape protocol to provide default implementation
+extension Shapeable {
+    func description() -> String {
+        return "Area: \(area()), Perimeter: \(perimeter())"
+    }
+}
+
+// Rectangle class conforming to the Shape protocol
+class Rectangle: Shapeable {
+    var width: Double
+    var height: Double
+    
+    // Initialize with width and height
+    init(width: Double, height: Double) {
+        self.width = width
+        self.height = height
+    }
+    
+    // Calculate the area
+    func area() -> Double {
+        return width * height
+    }
+    
+    // Calculate the perimeter
+    func perimeter() -> Double {
+        return 2 * (width + height)
+    }
+    // Provide description for the rectangle
+    func description() -> String {
+        return "Rectangle - Width: \(width), Height: \(height), Area: \(area()), Perimeter: \(perimeter())"
+    }
+
+}
+
+
