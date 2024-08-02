@@ -146,6 +146,60 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
+    // MARK: - Actions
+    /// Add a new shape to the shapes array
+    @objc private func addShape() {
+        guard let width = Double(widthTextField.text ?? ""),
+              let height = Double(heightTextField.text ?? ""),
+              width > 0, height > 0 else {
+            showMessage(.invalidInput)
+            return
+        }
+
+        let rectangle = Rectangle(width: width, height: height)
+        rectangles.append(rectangle)
+
+        clearInputFields()
+        showMessage(.shapeAdded)
+
+        // Display dimensions next to the rectangle outline
+        widthLabel.text = "Width: \(width)"
+        heightLabel.text = "Height: \(height)"
+
+        // Hide input fields and buttons
+        hideInputFieldsAndButtons()
+    }
+
+    /// Hide input fields and buttons
+    private func hideInputFieldsAndButtons() {
+        stackView.isHidden = true
+    }
+
+    /// Calculate and display the total area and perimeter of all shapes
+    @objc private func calculateResults() {
+        guard !rectangles.isEmpty else {
+            showMessage(.noShapes)
+            return
+        }
+
+        let totalArea = rectangles.reduce(0) { $0 + $1.area() }
+        let totalPerimeter = rectangles.reduce(0) { $0 + $1.perimeter() }
+
+        resultLabel.text = """
+        Total Area: \(formatNumber(totalArea))
+        Total Perimeter: \(formatNumber(totalPerimeter))
+        """
+
+        // Clear displayed dimensions
+        clearRectangleDimensions()
+    }
+
+    /// Clear the displayed dimensions
+    private func clearRectangleDimensions() {
+        widthLabel.text = ""
+        heightLabel.text = ""
+        stackView.isHidden = false
+    }
 
     
 }
