@@ -54,14 +54,19 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        setupUI()
     }
     
     // MARK: - UI Setup
-       /// Setup the user interface elements
-        private func setupUI() {
-        
+    /// Setup the user interface elements
+    private func setupUI() {
+        view.backgroundColor = .systemBlue
+        setupTitleLabel()
+        setupStackView()
+        setupTextFields()
+        setupButtons()
+        setupLabels()
+        setupConstraints()
     }
     
     /// Setup the title label
@@ -82,8 +87,8 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
         
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -93,10 +98,9 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
     
     /// Setup the stack view
     private func setupStackView() {
-        let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 20
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
     }
@@ -105,6 +109,8 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
     private func setupTextFields() {
         configureTextField(widthTextField, placeholder: "Width")
         configureTextField(heightTextField, placeholder: "Height")
+        stackView.addArrangedSubview(widthTextField)
+        stackView.addArrangedSubview(heightTextField)
     }
     
     /// Configure a text field with placeholder text
@@ -138,10 +144,33 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
         config.cornerStyle = .medium
         return config
     }
+
+    /// Setup the labels
+    private func setupLabels() {
+        configureLabel(resultLabel)
+        configureLabel(messageLabel, textColor: .red)
+        stackView.addArrangedSubview(resultLabel)
+        stackView.addArrangedSubview(messageLabel)
+        
+        widthLabel.textColor = .white
+        widthLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(widthLabel)
+        
+        heightLabel.textColor = .white
+        heightLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(heightLabel)
+    }
+    
+    /// Configure a label with optional text color
+    private func configureLabel(_ label: UILabel, textColor: UIColor = .black) {
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = textColor
+    }
     /// Setup the constraints for stack view
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: rectangleOutlineView.bottomAnchor, constant: 40),
+            stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
