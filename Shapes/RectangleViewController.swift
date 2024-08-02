@@ -231,6 +231,16 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
     }
-
+    
     
 }
+// MARK: - Message Enum
+extension RectangleViewController {
+    enum Message: String {
+        case invalidInput = "Please enter valid positive numbers for width and height."
+        case shapeAdded = "Shape added successfully."
+        case noShapes = "Please add shapes before calculating."
+    }
+}
+
+
