@@ -138,6 +138,14 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
         config.cornerStyle = .medium
         return config
     }
+    /// Setup the constraints for stack view
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: rectangleOutlineView.bottomAnchor, constant: 40),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+    }
 
     
 }
