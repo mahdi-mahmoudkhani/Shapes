@@ -242,5 +242,8 @@ extension RectangleViewController {
         case noShapes = "Please add shapes before calculating."
     }
 }
+#Preview{
+    RectangleViewController()
+}
 
 
