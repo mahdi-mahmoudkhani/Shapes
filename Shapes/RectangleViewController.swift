@@ -101,6 +101,22 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
         view.addSubview(stackView)
     }
     
+    /// Setup the text fields
+    private func setupTextFields() {
+        configureTextField(widthTextField, placeholder: "Width")
+        configureTextField(heightTextField, placeholder: "Height")
+    }
+    
+    /// Configure a text field with placeholder text
+    private func configureTextField(_ textField: UITextField, placeholder: String) {
+        textField.placeholder = placeholder
+        textField.borderStyle = .roundedRect
+        textField.keyboardType = .decimalPad
+        textField.delegate = self
+       
+    }
+
+    
     
     
 }
