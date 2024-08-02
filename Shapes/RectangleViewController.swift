@@ -42,6 +42,15 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
            label.translatesAutoresizingMaskIntoConstraints = false
            return label
        }()
+    
+    // MARK: - NumberFormatter
+        /// Formatter to format numbers with up to 2 decimal places
+        private let numberFormatter: NumberFormatter = {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            formatter.maximumFractionDigits = 2
+            return formatter
+        }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
