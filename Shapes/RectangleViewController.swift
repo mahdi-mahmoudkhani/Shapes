@@ -58,4 +58,11 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
         
     }
     
+    // MARK: - UI Setup
+       /// Setup the user interface elements
+        private func setupUI() {
+        
+    }
+    
+    
 }
