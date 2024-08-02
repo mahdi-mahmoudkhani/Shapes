@@ -115,6 +115,18 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
         textField.delegate = self
        
     }
+    /// Setup the buttons
+        private func setupButtons() {
+            configureButton(addButton, title: "Add", action: #selector(addShape))
+            configureButton(calculateButton, title: "Calculate", action: #selector(calculateResults))
+        }
+        
+        /// Configure a button with title and action
+        private func configureButton(_ button: UIButton, title: String, action: Selector) {
+            button.configuration = createButtonConfiguration(title: title)
+            button.addTarget(self, action: action, for: .touchUpInside)
+            stackView.addArrangedSubview(button)
+        }
 
     
     
