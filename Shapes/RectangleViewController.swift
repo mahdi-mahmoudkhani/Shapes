@@ -64,5 +64,33 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
         
     }
     
+    /// Setup the title label
+    private func setupTitleLabel() {
+        titleLabel.text = "Rectangle"
+        titleLabel.font = UIFont.systemFont(ofSize: 24, weight:.bold)
+        titleLabel.textAlignment = .center
+        titleLabel.textColor = .white
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(titleLabel)
+        
+        let subtitleLabel = UILabel()
+        subtitleLabel.text = "Measure the Magic of Shapes"
+        subtitleLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        subtitleLabel.textColor = .white
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(subtitleLabel)
+        
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            subtitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+    }
+    
+    
     
 }
