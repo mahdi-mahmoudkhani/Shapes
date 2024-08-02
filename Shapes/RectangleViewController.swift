@@ -224,6 +224,13 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
             }, completion: nil)
         }
     }
+    // MARK: - UITextFieldDelegate
+    /// Allow only decimal digits and periods in text fields
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = CharacterSet.decimalDigits.union(CharacterSet(charactersIn: "."))
+        let characterSet = CharacterSet(charactersIn: string)
+        return allowedCharacters.isSuperset(of: characterSet)
+    }
 
     
 }
