@@ -7,23 +7,46 @@
 
 import UIKit
 
-class RectangleViewController: UIViewController {
+class RectangleViewController: UIViewController ,UITextFieldDelegate {
+    
+    // MARK: - Properties
+    ///  Array to hold rectangles
+    var rectangles: [Rectangle] = []
+    
+    // MARK: - UI Elements
+    
+    private let stacckView = UIStackView()
+    private let widthTextField = UITextField()
+    private let heightTextField = UITextField()
+    private let addButton = UIButton()
+    private let calculateButton = UIButton()
+    private let resultLabel = UILabel()
+    private let messageLabel = UILabel()
+    private let titleLabel = UILabel()
+    private let rectangleOutlineView: UIView = {
+           let view = UIView()
+           view.layer.borderColor = UIColor.white.cgColor
+           view.layer.borderWidth = 2
+           view.translatesAutoresizingMaskIntoConstraints = false
+           return view
+       }()
+       private let widthLabel: UILabel = {
+           let label = UILabel()
+           label.textColor = .white
+           label.translatesAutoresizingMaskIntoConstraints = false
+           return label
+       }()
+       private let heightLabel: UILabel = {
+           let label = UILabel()
+           label.textColor = .white
+           label.translatesAutoresizingMaskIntoConstraints = false
+           return label
+       }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
