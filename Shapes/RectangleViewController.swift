@@ -200,6 +200,30 @@ class RectangleViewController: UIViewController ,UITextFieldDelegate {
         heightLabel.text = ""
         stackView.isHidden = false
     }
+    // MARK: - Helper Methods
+    /// Clear the input fields
+    private func clearInputFields() {
+        widthTextField.text = ""
+        heightTextField.text = ""
+    }
+
+    /// Format a number to a string with up to 2 decimal places
+    private func formatNumber(_ number: Double) -> String {
+        return numberFormatter.string(from: NSNumber(value: number)) ?? "\(number)"
+    }
+
+    /// Show a message to the user
+    private func showMessage(_ message: Message) {
+        messageLabel.text = message.rawValue
+
+        UIView.animate(withDuration: 0.3, animations: {
+            self.messageLabel.alpha = 1
+        }) { _ in
+            UIView.animate(withDuration: 0.3, delay: 2, options: [], animations: {
+                self.messageLabel.alpha = 0
+            }, completion: nil)
+        }
+    }
 
     
 }
