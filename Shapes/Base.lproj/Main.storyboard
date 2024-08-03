@@ -122,6 +122,9 @@
                                     <segment title="Decrasing"/>
                                     <segment title="Not Sort"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sortSelected:" destination="aGV-Q0-uLs" eventType="valueChanged" id="oNH-ba-V40"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result Filter:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZY-VJ-Pan">
                                 <rect key="frame" x="35.000000000000007" y="378" width="80.666666666666686" height="17"/>
@@ -136,6 +139,9 @@
                                     <segment title="Odd Nums"/>
                                     <segment title="All Nums"/>
                                 </segments>
+                                <connections>
+                                    <action selector="numsFilterSelected:" destination="aGV-Q0-uLs" eventType="valueChanged" id="Zxw-sv-Y70"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuX-e4-rKS">
                                 <rect key="frame" x="30" y="779" width="333" height="39"/>

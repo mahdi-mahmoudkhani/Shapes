@@ -10,6 +10,9 @@ import UIKit
 class ShapesDetailVC: UIViewController {
     
     private (set) var squareInstances: [SquareModel] = []
+    private (set) var calculatedData: [ [Double] ] = []
+    private (set) var filterredData: [ [Double] ] = []
+    private (set) var keyWord: String = ""
     
     @IBOutlet weak var sideSizeField: UITextField!
     @IBOutlet weak var sortOption: UISegmentedControl!
@@ -38,7 +41,7 @@ class ShapesDetailVC: UIViewController {
     
     @IBAction func calculateAreaButton(_ sender: Any) {
         
-        self.sortSelection()
+        self.keyWord = "Area"
         if self.squareInstances.isEmpty {
             self.showEmptyArrayAlert()
             
@@ -50,7 +53,7 @@ class ShapesDetailVC: UIViewController {
     
     @IBAction func calculatePerimeterButton(_ sender: Any) {
         
-        self.sortSelection()
+        self.keyWord = "Perimeter"
         if squareInstances.isEmpty {
             self.showEmptyArrayAlert()
             
@@ -59,6 +62,15 @@ class ShapesDetailVC: UIViewController {
         self.calculatePerimiter()
     }
     
+    @IBAction func sortSelected(_ sender: Any) {
+        
+        self.sortSelection()
+    }
+    
+    @IBAction func numsFilterSelected(_ sender: Any) {
+        
+        self.filterResult()
+    }
     
     @IBAction func clearResultButton(_ sender: Any) {
         
@@ -68,70 +80,117 @@ class ShapesDetailVC: UIViewController {
     
     private func calculateArea() {
         
-        var calculateResult: [[Double]] = []
+        self.calculatedData = []
         for instance in self.squareInstances {
-            calculateResult.append([instance.side, instance.area()])
+            self.calculatedData.append([instance.side, instance.area()])
         }
-        calculateResult = self.filterResult(givenResult: calculateResult)
-        var output: String = ""
-        for (index, instance) in calculateResult.enumerated() {
-            output += "Area of the \(index + 1)th square is : \(instance[0]) ^ 2 = \(instance[1])\n"
-        }
-        self.outputTextView.text = output
+        
+        self.filterResult()
+        self.sortSelection()
     }
     
 
     private func calculatePerimiter() {
         
-        var calculateResult: [[Double]] = []
+        self.calculatedData = []
         for instance in self.squareInstances {
-            calculateResult.append([instance.side, instance.perimeter()])
+            self.calculatedData.append([instance.side, instance.perimeter()])
         }
-        calculateResult = self.filterResult(givenResult: calculateResult)
-        var output: String = ""
-        for (index, instance) in calculateResult.enumerated() {
-            output += "Perimeter of the \(index + 1)th square is : \(instance[0]) * 4 = \(instance[1])\n"
-        }
-        self.outputTextView.text = output
+        
+        self.filterResult()
+        self.sortSelection()
     }
     
     
     private func sortSelection() {
         
+        if self.filterredData.isEmpty {
+            self.filterredData = self.calculatedData
+        }
+        
         switch self.sortOption.selectedSegmentIndex {
         case 0 :
-            self.squareInstances.sort{ $0.side < $1.side }
+            self.filterredData.sort{ $0[1] < $1[1] }
+            
         case 1 :
-            self.squareInstances.sort{ $0.side > $1.side }
+            self.filterredData.sort{ $0[1] > $1[1] }
+            
         default:
-            ()
+            self.filterredData = self.calculatedData
         }
+        
+        self.createOutputText()
     }
     
     
-    private func filterResult(givenResult: [[Double]]) -> [[Double]] {
+    private func filterResult() {
         
-        let filterredResult: [[Double]]
+        if self.filterredData.isEmpty {
+            self.filterredData = self.calculatedData
+        }
+        
         switch self.resultFilter.selectedSegmentIndex {
         case 0:
-            filterredResult = givenResult.filter( { $0[1].truncatingRemainder(dividingBy: 2) == 0 } )
+            self.filterredData = self.calculatedData.filter( { $0[1].truncatingRemainder(dividingBy: 2) == 0 } )
+        
         case 1:
-            filterredResult = givenResult.filter( { $0[1].truncatingRemainder(dividingBy: 2) == 1 } )
+            self.filterredData = self.calculatedData.filter( { $0[1].truncatingRemainder(dividingBy: 2) == 1 } )
+            
         default:
-            filterredResult = givenResult
+            self.filterredData = self.calculatedData
         }
         
-        return filterredResult
+        self.createOutputText()
     }
     
+    private func createOutputText() {
+        
+        var output: String = ""
+        
+        switch keyWord {
+        case "Area":
+            
+            output = ""
+            for (index, instance) in self.filterredData.enumerated() {
+                output += "\(index + 1)th square is : \(instance[0]) ^ 2 = \(instance[1])\n"
+            }
+            
+            if output.isEmpty && !self.calculatedData.isEmpty {
+                output = "No valid square based on filters!\n"
+            } else {
+                output = "Square area formula is: side-size ^ 2\nArea of:\n" + output
+            }
+            
+        case "Perimeter":
+
+            output = ""
+            for (index, instance) in self.filterredData.enumerated() {
+                output += "\(index + 1)th square is : \(instance[0]) * 4 = \(instance[1])\n"
+            }
+            
+            if output.isEmpty && !self.calculatedData.isEmpty {
+                output = "No valid square based on filters!\n"
+            } else {
+                output = "Square perimeter formula is : side-size * 4\nPerimeter of:\n" + output
+            }
+            
+        default:
+            output = "Result will be shown here:\n"
+        }
+        
+        self.outputTextView.text = output
+    }
     
     private func handleClear() {
         
         self.outputTextView.text = "Result will be shown here:"
         self.squareInstances.removeAll()
         self.sideSizeField.text = ""
+        self.calculatedData.removeAll()
+        self.filterredData.removeAll()
         self.resultFilter.selectedSegmentIndex = 2
         self.sortOption.selectedSegmentIndex = 2
+        self.keyWord = ""
     }
     
     
