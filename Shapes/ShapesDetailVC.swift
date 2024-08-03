@@ -8,7 +8,11 @@
 import UIKit
 
 class ShapesDetailVC: UIViewController {
-
+    
+    @IBOutlet weak var sideSizeField: UITextField!
+    
+    private (set) var sideSizes: [Double] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +20,19 @@ class ShapesDetailVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    @IBAction func AddNumberToArray(_ sender: UIButton) {
+            guard let InteredText = sideSizeField.text, let InteredNum = Double(InteredText) else {
+                ShowInvalidInputAlert()
+                return
+            }
+            sideSizes.append(InteredNum)
+            sideSizeField.text = ""
+        }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func ShowInvalidInputAlert() {
+        let alert = UIAlertController(title: "Invalid Input", message: "Please enter a valid side size.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
-    */
-
+    
 }

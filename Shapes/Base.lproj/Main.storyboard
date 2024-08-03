@@ -60,10 +60,42 @@
                     <view key="view" contentMode="scaleToFill" id="R9x-b1-sZF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your square side size here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XVp-qU-pYG">
+                                <rect key="frame" x="30" y="165" width="333" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="oKt-xZ-rgH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPs-Ce-hxm">
+                                <rect key="frame" x="30" y="215" width="333" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="x86-mA-WkY"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Add size number to the list"/>
+                                <connections>
+                                    <action selector="AddNumberToArray:" destination="aGV-Q0-uLs" eventType="touchUpInside" id="m77-ed-G4H"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="idk-VD-daT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XVp-qU-pYG" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="30" id="1uy-I6-oAB"/>
+                            <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="FPs-Ce-hxm" secondAttribute="trailing" constant="30" id="3HL-Ga-96D"/>
+                            <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="XVp-qU-pYG" secondAttribute="trailing" constant="30" id="I4v-yJ-Cad"/>
+                            <constraint firstItem="FPs-Ce-hxm" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="30" id="N1Z-Zf-1Ug"/>
+                            <constraint firstItem="FPs-Ce-hxm" firstAttribute="top" secondItem="XVp-qU-pYG" secondAttribute="bottom" constant="10" id="PK0-BB-xiV"/>
+                            <constraint firstItem="XVp-qU-pYG" firstAttribute="top" secondItem="idk-VD-daT" secondAttribute="top" constant="10" id="o94-Ka-S8t"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lw6-Jo-0p0"/>
+                    <connections>
+                        <outlet property="sideSizeField" destination="XVp-qU-pYG" id="ghy-eH-nEe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u6f-nS-OLs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
