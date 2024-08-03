@@ -59,11 +59,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculateButtonTapped(_ sender: Any) {
+        
         //after hitting calculate button we make results
         //if there was any remove it
         results.removeAll()
         
         for (index , circle  ) in circleModel.enumerated(){
+            
             let segmentindec = segmentIndex[index]
            
             switch segmentindec {
@@ -94,26 +96,31 @@ class ViewController: UIViewController {
     }
     
     @IBAction func oddButtonTapped(_ sender: Any) {
+        
         let oddResults = results.filter { Int($0)%2 != 0 }
         Show(oddResults)
     }
     
     @IBAction func evenButtonTapped(_ sender: Any) {
+        
         let evenResults = results.filter { Int($0)%2 == 0 }
         Show(evenResults)
     }
     
     @IBAction func increasingSortTapped(_ sender: Any) {
+        
         let inSortedResults = results.sorted()
         Show(inSortedResults)
     }
     
     @IBAction func decreasingSortTapped(_ sender: Any) {
+        
         let deSortedResults = results.sorted(by: > )
         Show(deSortedResults)
     }
     
     func Show( _ results: [Double]){
+        
        // print("Displaying results: \(results)")
         let resultText = results.map { "\($0)" }.joined(separator: "\n")
         
