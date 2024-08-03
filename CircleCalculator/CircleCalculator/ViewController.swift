@@ -43,15 +43,19 @@ class ViewController: UIViewController {
     @IBAction func addButtonTapped(_ sender: Any) {
         
         guard let text = textField.text, !text.isEmpty, let radius = Double(text) , radius > 0 else {
+            
                     // Show alert if input is invalid
                     showAlert(message: "Please enter a valid radius.")
                     return
+            
                 }
         
-        let circle = CircleModel(radius: radius)
+        let circle = CircleModel( radius: radius)
+        
                 circleModel.append(circle)
                 segmentIndex.append(segmentControl.selectedSegmentIndex)
                 textField.text = ""
+        
     }
     
     @IBAction func resetButoonTapped(_ sender: Any) {
@@ -77,6 +81,7 @@ class ViewController: UIViewController {
            
             switch segmentindec {
             case 0 :
+                
                 ans = circle.area()
                 functionName = "Area"
                 
@@ -88,6 +93,7 @@ class ViewController: UIViewController {
                 break
                 
             case 2 :
+                
                 ans = circle.volume()
                 functionName = "Volume"
                 break
@@ -100,11 +106,14 @@ class ViewController: UIViewController {
             default:
                 continue
             }
+            
             detailedResults.append((radius: circle.radius, function: functionName, result : ans) )
         }
+        
         //needs a function to show resluts maybe
         
     }
+    
     
     @IBAction func oddButtonTapped(_ sender: Any) {
         
@@ -112,17 +121,20 @@ class ViewController: UIViewController {
         Show(oddResults)
     }
     
+    
     @IBAction func evenButtonTapped(_ sender: Any) {
         
         let evenResults = detailedResults.filter { Int($0.result) % 2 == 0 }
         Show(evenResults)
     }
     
+    
     @IBAction func increasingSortTapped(_ sender: Any) {
         
         let inSortedResults = detailedResults.sorted { $0.result < $1.result }
         Show(inSortedResults)
     }
+    
     
     @IBAction func decreasingSortTapped(_ sender: Any) {
         
@@ -134,6 +146,7 @@ class ViewController: UIViewController {
     @IBAction func normalShowButton(_ sender: Any) {
         Show(detailedResults)
     }
+    
     
     func Show( _ results: [(radius: Double, function: String, result: Double)]){
         
