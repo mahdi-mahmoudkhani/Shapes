@@ -78,6 +78,7 @@ class ViewController: UIViewController {
             }
             
         }
+        //needs a function to show resluts maybe 
         
     }
     
