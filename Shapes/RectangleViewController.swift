@@ -146,6 +146,25 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
         ])
     }
 
+    private func setupListView() {
+        listView = UITableView(frame: .zero, style: .plain)
+        listView?.translatesAutoresizingMaskIntoConstraints = false
+        if let listView = listView {
+            view.addSubview(listView)
+
+            NSLayoutConstraint.activate([
+                listView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20),
+                listView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                listView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                listView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            ])
+
+            listView.dataSource = self
+            listView.delegate = self
+            listView.register(UITableViewCell.self, forCellReuseIdentifier: "RectangleCell")
+        }
+    }
+
     // MARK: - Button Configuration
 
     /// Create a configuration for a button
@@ -233,6 +252,31 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
         let allowedCharacters = CharacterSet.decimalDigits.union(CharacterSet(charactersIn: "."))
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
+    }
+
+    // MARK: - UITableViewDataSource
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredShapes.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RectangleCell", for: indexPath)
+        let rectangle = filteredShapes[indexPath.row]
+        cell.textLabel?.text = "\(rectangle.description())"
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        cell.detailTextLabel?.textColor = .gray
+        return cell
+    }
+
+    // MARK: - UITableViewDelegate
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let rectangle = filteredShapes[indexPath.row]
+        let alert = UIAlertController(title: "Rectangle \(indexPath.row + 1)", message: rectangle.description(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
 }
 
