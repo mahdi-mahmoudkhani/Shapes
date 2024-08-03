@@ -119,9 +119,16 @@ class ViewController: UIViewController {
         Show(deSortedResults)
     }
     
+    
+    @IBAction func normalShowButton(_ sender: Any) {
+        Show(results)
+    }
+    
     func Show( _ results: [Double]){
         
        // print("Displaying results: \(results)")
+        
+        
         let resultText = results.map { "\($0)" }.joined(separator: "\n")
         
         resultTextView.text = resultText
