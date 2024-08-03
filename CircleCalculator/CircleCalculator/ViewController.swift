@@ -95,18 +95,28 @@ class ViewController: UIViewController {
     
     @IBAction func oddButtonTapped(_ sender: Any) {
         let oddResults = results.filter { Int($0)%2 != 0 }
+        Show(oddResults)
     }
     
     @IBAction func evenButtonTapped(_ sender: Any) {
         let evenResults = results.filter { Int($0)%2 == 0 }
+        Show(evenResults)
     }
     
     @IBAction func increasingSortTapped(_ sender: Any) {
         let inSortedResults = results.sorted()
+        Show(inSortedResults)
     }
     
     @IBAction func decreasingSortTapped(_ sender: Any) {
         let deSortedResults = results.sorted(by: > )
+        Show(deSortedResults)
+    }
+    
+    func Show( _ results: [Double]){
+        let resultText = results.map { "\($0)" }.joined(separator: "\n")
+        
+        resultTextView.text = resultText
     }
     
     
