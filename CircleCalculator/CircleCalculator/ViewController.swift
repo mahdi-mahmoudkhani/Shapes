@@ -31,9 +31,14 @@ class ViewController: UIViewController {
         let radius = Double(text) else {
             return
         }
+        let circle = CircleModel(radius: radius)
+                circleModel.append(circle)
+                segmentIndex.append(segmentControl.selectedSegmentIndex)
+                textField.text = ""
     }
     
     @IBAction func resetButoonTapped(_ sender: Any) {
+        
     }
     
     @IBAction func calculateButtonTapped(_ sender: Any) {
