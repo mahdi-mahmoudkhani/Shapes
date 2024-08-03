@@ -11,8 +11,10 @@ class ViewController: UIViewController {
     
     var circleModel : [CircleModel] = []
     var segmentIndex : [Int] = []
-    var results : [Double] = []
-//    
+    var detailedResults: [(radius: Double, function: String, result: Double)] = []
+    
+    
+//
 //    var oddResults : [Double] = []
 //    var evenResults : [Double] = []
 //    var inSortedResults : [Double] = []
@@ -24,6 +26,8 @@ class ViewController: UIViewController {
 //        }else
 //            return true
 //    }
+    
+    
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
@@ -53,7 +57,7 @@ class ViewController: UIViewController {
     @IBAction func resetButoonTapped(_ sender: Any) {
         
         circleModel.removeAll()
-        results.removeAll()
+        detailedResults.removeAll()
         segmentIndex.removeAll()
         
         textField.text=""
@@ -63,34 +67,40 @@ class ViewController: UIViewController {
         
         //after hitting calculate button we make results
         //if there was any remove it
-        results.removeAll()
+        detailedResults.removeAll()
         
         for (index , circle  ) in circleModel.enumerated(){
             
             let segmentindec = segmentIndex[index]
+            let ans: Double
+            let functionName: String
            
             switch segmentindec {
             case 0 :
+                ans = circle.area()
+                functionName = "Area"
                 
-                results.append(circle.area())
                 break
             case 1 :
                 
-                results.append(circle.perimeter())
+                ans = circle.perimeter()
+                functionName = "Perimeter"
                 break
                 
             case 2 :
-                results.append(circle.volume())
+                ans = circle.volume()
+                functionName = "Volume"
                 break
                 
             case 3 :
-                results.append(circle.sideArea())
+                ans = circle.sideArea()
+                functionName = "Side Area"
                 break
                 
             default:
-                break
+                continue
             }
-            
+            detailedResults.append((radius: circle.radius, function: functionName, result : ans) )
         }
         //needs a function to show resluts maybe
         
@@ -98,41 +108,44 @@ class ViewController: UIViewController {
     
     @IBAction func oddButtonTapped(_ sender: Any) {
         
-        let oddResults = results.filter { Int($0)%2 != 0 }
+        let oddResults = detailedResults.filter { Int($0.result) % 2 != 0 }
         Show(oddResults)
     }
     
     @IBAction func evenButtonTapped(_ sender: Any) {
         
-        let evenResults = results.filter { Int($0)%2 == 0 }
+        let evenResults = detailedResults.filter { Int($0.result) % 2 == 0 }
         Show(evenResults)
     }
     
     @IBAction func increasingSortTapped(_ sender: Any) {
         
-        let inSortedResults = results.sorted()
+        let inSortedResults = detailedResults.sorted { $0.result < $1.result }
         Show(inSortedResults)
     }
     
     @IBAction func decreasingSortTapped(_ sender: Any) {
         
-        let deSortedResults = results.sorted(by: > )
+        let deSortedResults = detailedResults.sorted { $0.result > $1.result }
         Show(deSortedResults)
     }
     
     
     @IBAction func normalShowButton(_ sender: Any) {
-        Show(results)
+        Show(detailedResults)
     }
     
-    func Show( _ results: [Double]){
+    func Show( _ results: [(radius: Double, function: String, result: Double)]){
         
        // print("Displaying results: \(results)")
         
         
-        let resultText = results.map { "\($0)" }.joined(separator: "\n")
-        
+        let resultText = results.map {
+        "Radius: \($0.radius), Function: \($0.function), Result: \($0.result)"
+        }.joined(separator: "\n")
+                
         resultTextView.text = resultText
+      
     }
         
     
