@@ -24,6 +24,10 @@
                                 <rect key="frame" x="-325" y="-216" width="622" height="622"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image 9" translatesAutoresizingMaskIntoConstraints="NO" id="iX5-nj-WqK">
+                                <rect key="frame" x="-75" y="421" width="150" height="134"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3z-U3-Zma">
                                 <rect key="frame" x="88.666666666666686" y="117" width="216" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -167,6 +171,7 @@
         <image name="7a8909101054535 1" width="785" height="581"/>
         <image name="Rectangle 9" width="428" height="490"/>
         <image name="image 11" width="428" height="428"/>
+        <image name="image 9" width="104" height="112"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

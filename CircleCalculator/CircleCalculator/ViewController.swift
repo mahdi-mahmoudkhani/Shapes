@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
     }
@@ -73,7 +74,7 @@ class ViewController: UIViewController {
         //if there was any remove it
         detailedResults.removeAll()
         
-        for (index , circle  ) in circleModel.enumerated(){
+        for ( index , circle  ) in circleModel.enumerated(){
             
             let segmentindec = segmentIndex[index]
             let ans: Double
@@ -154,7 +155,7 @@ class ViewController: UIViewController {
         
         
         let resultText = results.map {
-        "Radius: \($0.radius), Function: \($0.function), Result: \($0.result)"
+        "Radius: \($0.radius), Function: \($0.function), Result: \(Float($0.result))"
         }.joined(separator: "\n")
                 
         resultTextView.text = resultText
@@ -164,7 +165,6 @@ class ViewController: UIViewController {
     
     func showAlert(message: String) {
            let alert = UIAlertController(title: "Invalid Input", message: message, preferredStyle: .alert)
-           alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
            present(alert, animated: true, completion: nil)
        }
     
