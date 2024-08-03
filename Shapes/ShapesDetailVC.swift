@@ -9,119 +9,116 @@ import UIKit
 
 class ShapesDetailVC: UIViewController {
     
-    @IBOutlet weak var sideSizeField: UITextField!
-    
     private (set) var squareInstances: [SquareModel] = []
+    
+    @IBOutlet weak var sideSizeField: UITextField!
+    @IBOutlet weak var sortOption: UISegmentedControl!
+    @IBOutlet weak var resultFilter: UISegmentedControl!
     @IBOutlet weak var outputTextView: UITextView!
-    @IBOutlet weak var SortOption: UISegmentedControl!
-    @IBOutlet weak var ResultFilter: UISegmentedControl!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func AddNumberToArray(_ sender: UIButton) {
-            guard let InteredText = sideSizeField.text, let InteredNum = Double(InteredText) else {
-                ShowInvalidInputAlert()
-                return
-            }
-            squareInstances.append(SquareModel(side: InteredNum))
-            sideSizeField.text = ""
-        }
     
-    @IBAction func CalculateAreaButton(_ sender: Any) {
-            SortSelection()
-            if squareInstances.isEmpty {
-                ShowEmptyArrayAlert()
-                return
-            }
-            CalculateArea()
-        }
+    @IBAction func addNumberToArray(_ sender: UIButton) {
         
-    @IBAction func CleatResultButton(_ sender: Any) {
-        ShowClearationAlert()
+        guard let InteredText = self.sideSizeField.text, let InteredNum = Double(InteredText) else {
+            self.showInvalidInputAlert()
+            
+            return
+        }
+        self.squareInstances.append(SquareModel(side: InteredNum))
+        self.sideSizeField.text = ""
     }
     
-    private func SortSelection() {
-        switch SortOption.selectedSegmentIndex {
+    
+    @IBAction func calculateAreaButton(_ sender: Any) {
+        
+        self.sortSelection()
+        if self.squareInstances.isEmpty {
+            self.showEmptyArrayAlert()
+            
+            return
+        }
+        self.calculateArea()
+    }
+    
+    
+    @IBAction func calculatePerimeterButton(_ sender: Any) {
+        
+        self.sortSelection()
+        if squareInstances.isEmpty {
+            self.showEmptyArrayAlert()
+            
+            return
+        }
+        self.calculatePerimiter()
+    }
+    
+    
+    @IBAction func clearResultButton(_ sender: Any) {
+        
+        self.showClearationAlert()
+    }
+    
+    
+    private func calculateArea() {
+        
+        var calculateResult: [[Double]] = []
+        for instance in self.squareInstances {
+            calculateResult.append([instance.side, instance.area()])
+            self.squareInstances.removeFirst()
+        }
+        calculateResult = self.filterResult(givenResult: calculateResult)
+        var output: String = "\n"
+        for (index, instance) in calculateResult.enumerated() {
+            output += "\nArea of the \(index + 1)th square is : \(instance[0]) ^ 2 = \(instance[1])"
+        }
+        self.outputTextView.text += output
+    }
+    
+
+    private func calculatePerimiter() {
+        
+        var calculateResult: [[Double]] = []
+        for instance in self.squareInstances {
+            calculateResult.append([instance.side, instance.perimeter()])
+            self.squareInstances.removeFirst()
+        }
+        calculateResult = self.filterResult(givenResult: calculateResult)
+        var output: String = "\n"
+        for (index, instance) in calculateResult.enumerated() {
+            output += "\nPerimeter of the \(index + 1)th square is : \(instance[0]) * 4 = \(instance[1])"
+        }
+        self.outputTextView.text += output
+    }
+    
+    
+    private func sortSelection() {
+        
+        switch self.sortOption.selectedSegmentIndex {
         case 0 :
-            squareInstances.sort{ $0.side < $1.side }
+            self.squareInstances.sort{ $0.side < $1.side }
         case 1 :
-            squareInstances.sort{ $0.side > $1.side }
+            self.squareInstances.sort{ $0.side > $1.side }
         default:
             ()
         }
     }
     
-    private func ShowInvalidInputAlert() {
-        let alert = UIAlertController(title: "Invalid Input", message: "Please enter a valid side size.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    @IBAction func CalculatePerimeterButton(_ sender: Any) {
-            SortSelection()
-            if squareInstances.isEmpty {
-                ShowEmptyArrayAlert()
-                return
-            }
-            CalculatePerimiter()
-        }
-    
-    private func ShowEmptyArrayAlert() {
-            let alert = UIAlertController(title: "Not Any Square", message: "Please enter one side size at least.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
-        }
-        
-    private func CalculateArea() {
-        
-            var calculateResult: [[Double]] = []
-        
-            for instance in squareInstances {
-                calculateResult.append([instance.side, instance.area()])
-                squareInstances.removeFirst()
-            }
-            calculateResult = filterResult(givenResult: calculateResult)
-        
-            var output: String = "\n"
-            for (index, instance) in calculateResult.enumerated() {
-                output += "\nArea of the \(index + 1)th square is : \(instance[0]) ^ 2 = \(instance[1])"
-            }
-            outputTextView.text += output
-        }
-        
-    private func CalculatePerimiter() {
-        
-            var calculateResult: [[Double]] = []
-        
-            for instance in squareInstances {
-                calculateResult.append([instance.side, instance.perimeter()])
-                squareInstances.removeFirst()
-            }
-            calculateResult = filterResult(givenResult: calculateResult)
-        
-            var output: String = "\n"
-            for (index, instance) in calculateResult.enumerated() {
-                output += "\nPerimeter of the \(index + 1)th square is : \(instance[0]) * 4 = \(instance[1])"
-            }
-            outputTextView.text += output
-        }
     
     private func filterResult(givenResult: [[Double]]) -> [[Double]] {
         
         let filterredResult: [[Double]]
-        
-        switch ResultFilter.selectedSegmentIndex {
-            
+        switch self.resultFilter.selectedSegmentIndex {
         case 0:
             filterredResult = givenResult.filter( { $0[1].truncatingRemainder(dividingBy: 2) == 0 } )
-            
         case 1:
             filterredResult = givenResult.filter( { $0[1].truncatingRemainder(dividingBy: 2) == 1 } )
-            
         default:
             filterredResult = givenResult
         }
@@ -129,21 +126,37 @@ class ShapesDetailVC: UIViewController {
         return filterredResult
     }
     
-    private func ShowClearationAlert() {
+    
+    private func handleClear() {
         
-        let alert = UIAlertController(title: "Warning", message: "Are you sure to clear the result?", preferredStyle: .alert)
+        self.outputTextView.text = "Result will be shown here:"
+    }
+    
+    
+    private func showInvalidInputAlert() {
         
-        alert.addAction(UIAlertAction(title: "Clear", style: .default, handler: {_ in
-            self.handleClear()
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        
+        let alert = UIAlertController(title: "Invalid Input", message: "Please enter a valid side size.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
-    private func handleClear() {
-        outputTextView.text = "Result will be seen here:"
+    
+    private func showEmptyArrayAlert() {
+        
+        let alert = UIAlertController(title: "Not Any Square", message: "Please enter one side size at least.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    private func showClearationAlert() {
+        
+        let alert = UIAlertController(title: "Warning", message: "Are you sure to clear the result?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Clear", style: .default, handler: {_ in
+            self.handleClear()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
 }
