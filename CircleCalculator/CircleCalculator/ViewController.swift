@@ -29,11 +29,16 @@ class ViewController: UIViewController {
     
     @IBAction func oddButtonTapped(_ sender: Any) {
     }
+    
     @IBAction func evenButtonTapped(_ sender: Any) {
     }
+    
     @IBAction func increasingSortTapped(_ sender: Any) {
     }
+    
     @IBAction func decreasingSortTapped(_ sender: Any) {
     }
+    
+    
 }
 
