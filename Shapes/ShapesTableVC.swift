@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ShapesTableVC.swift
 //  Shapes
 //
 //  Created by Mahdi on 5/9/1403 AP.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ShapesTableVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

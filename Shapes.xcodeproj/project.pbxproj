@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		1100FFD02C58BA390001AA91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100FFCF2C58BA390001AA91 /* AppDelegate.swift */; };
 		1100FFD22C58BA390001AA91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100FFD12C58BA390001AA91 /* SceneDelegate.swift */; };
-		1100FFD42C58BA390001AA91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100FFD32C58BA390001AA91 /* ViewController.swift */; };
+		1100FFD42C58BA390001AA91 /* ShapesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100FFD32C58BA390001AA91 /* ShapesTableVC.swift */; };
 		1100FFD72C58BA390001AA91 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1100FFD62C58BA390001AA91 /* Base */; };
 		1100FFD92C58BA3A0001AA91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1100FFD82C58BA3A0001AA91 /* Assets.xcassets */; };
 		1100FFDC2C58BA3A0001AA91 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1100FFDB2C58BA3A0001AA91 /* Base */; };
 		1100FFE52C58BDD10001AA91 /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100FFE42C58BDD10001AA91 /* Square.swift */; };
+		110C21882C5E09DB0032A469 /* ShapesDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110C21872C5E09DB0032A469 /* ShapesDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1100FFCC2C58BA390001AA91 /* Shapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1100FFCF2C58BA390001AA91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1100FFD12C58BA390001AA91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1100FFD32C58BA390001AA91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1100FFD32C58BA390001AA91 /* ShapesTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesTableVC.swift; sourceTree = "<group>"; };
 		1100FFD62C58BA390001AA91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1100FFD82C58BA3A0001AA91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1100FFDB2C58BA3A0001AA91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1100FFDD2C58BA3A0001AA91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1100FFE42C58BDD10001AA91 /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
+		110C21872C5E09DB0032A469 /* ShapesDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +63,8 @@
 				1100FFE32C58BDB10001AA91 /* Models */,
 				1100FFCF2C58BA390001AA91 /* AppDelegate.swift */,
 				1100FFD12C58BA390001AA91 /* SceneDelegate.swift */,
-				1100FFD32C58BA390001AA91 /* ViewController.swift */,
+				1100FFD32C58BA390001AA91 /* ShapesTableVC.swift */,
+				110C21872C5E09DB0032A469 /* ShapesDetailVC.swift */,
 				1100FFD52C58BA390001AA91 /* Main.storyboard */,
 				1100FFD82C58BA3A0001AA91 /* Assets.xcassets */,
 				1100FFDA2C58BA3A0001AA91 /* LaunchScreen.storyboard */,
@@ -150,7 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1100FFE52C58BDD10001AA91 /* Square.swift in Sources */,
-				1100FFD42C58BA390001AA91 /* ViewController.swift in Sources */,
+				110C21882C5E09DB0032A469 /* ShapesDetailVC.swift in Sources */,
+				1100FFD42C58BA390001AA91 /* ShapesTableVC.swift in Sources */,
 				1100FFD02C58BA390001AA91 /* AppDelegate.swift in Sources */,
 				1100FFD22C58BA390001AA91 /* SceneDelegate.swift in Sources */,
 			);
