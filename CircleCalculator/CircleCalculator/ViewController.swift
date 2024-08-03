@@ -38,10 +38,11 @@ class ViewController: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: Any) {
         
-        guard let text = textField.text, 
-        let radius = Double(text) else {
-            return
-        }
+        guard let text = textField.text, !text.isEmpty, let radius = Double(text) else {
+                    // Show alert if input is invalid
+                    showAlert(message: "Please enter a valid radius.")
+                    return
+                }
         
         let circle = CircleModel(radius: radius)
                 circleModel.append(circle)
@@ -133,7 +134,13 @@ class ViewController: UIViewController {
         
         resultTextView.text = resultText
     }
+        
     
+    func showAlert(message: String) {
+           let alert = UIAlertController(title: "Invalid Input", message: message, preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+           present(alert, animated: true, completion: nil)
+       }
     
     
 }
