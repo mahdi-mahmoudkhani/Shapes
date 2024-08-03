@@ -23,7 +23,8 @@ class ViewController: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: Any) {
         
-        guard let text = textField.text, let radius = Double(text) else {
+        guard let text = textField.text, 
+        let radius = Double(text) else {
             return
         }
     }

@@ -30,7 +30,7 @@ protocol SphereCalculable {
     
 }
 
-class CircleModel : CircleShapeable , CircleCalculable , SphereCalculable {
+struct CircleModel : CircleShapeable , CircleCalculable , SphereCalculable {
     
     // Properties of the CircleModel
     private (set) var radius : Double
