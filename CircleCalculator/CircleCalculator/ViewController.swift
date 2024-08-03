@@ -8,7 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var resultTextView: UITextView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,12 +21,11 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func functionSegment(_ sender: Any) {
-    }
-    
-    @IBOutlet weak var textField: UITextField!
-    
     @IBAction func addButtonTapped(_ sender: Any) {
+        
+        guard let text = textField.text, let radius = Double(text) else {
+            return
+        }
     }
     
     @IBAction func resetButoonTapped(_ sender: Any) {
