@@ -48,6 +48,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculateButtonTapped(_ sender: Any) {
+        //after hitting calculate button we make results
+        
     }
     
     @IBAction func oddButtonTapped(_ sender: Any) {
