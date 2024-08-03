@@ -9,6 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var circleModel : [CircleModel] = []
+    var segmentIndex : [Int] = []
+    var results : [Double] = []
+    
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
