@@ -114,6 +114,7 @@ class ViewController: UIViewController {
     }
     
     func Show( _ results: [Double]){
+       // print("Displaying results: \(results)")
         let resultText = results.map { "\($0)" }.joined(separator: "\n")
         
         resultTextView.text = resultText
