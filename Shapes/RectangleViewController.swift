@@ -4,6 +4,7 @@
 //
 //  Created by Aref on 8/2/24.
 //
+
 import UIKit
 
 class RectangleViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
@@ -11,6 +12,7 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
 
     var shapes: [Rectangle] = []
     var filteredShapes: [Rectangle] = []
+    var storedDimensions: [(width: Double, height: Double)] = []  // New property to store dimensions
 
     // MARK: - UI Elements
 
@@ -18,6 +20,7 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
     private let widthTextField = UITextField()
     private let heightTextField = UITextField()
     private let addButton = UIButton(type: .system)
+    private let calculateButton = UIButton(type: .system)  // New calculate button
     private let clearButton = UIButton(type: .system)
     private let sortDescendingButton = UIButton(type: .system)
     private let sortAscendingButton = UIButton(type: .system)
@@ -29,7 +32,7 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
     private var listView: UITableView?
 
     // MARK: - NumberFormatter
-
+    // Formatter to format numbers with up to 2 decimal place
     private let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -45,7 +48,7 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
     }
 
     // MARK: - UI Setup
-
+    /// Setup the user interface elements
     private func setupUI() {
         view.backgroundColor = .systemBlue
         setupTitleLabel()
@@ -56,7 +59,7 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
         setupConstraints()
         setupListView()
     }
-
+    /// Setup the title label
     private func setupTitleLabel() {
         titleLabel.text = "Rectangle Realm"
         titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
@@ -83,19 +86,20 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
         ])
     }
 
+    /// Setup the stack view
     private func setupStackView() {
         stackView.axis = .vertical
-        stackView.spacing = 20
-        stackView.distribution = .fillEqually
+        stackView.spacing = 10
+        stackView.distribution = .fillProportionally
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
     }
-
+    /// Setup the text fields
     private func setupTextFields() {
         configureTextField(widthTextField, placeholder: "Width")
         configureTextField(heightTextField, placeholder: "Height")
     }
-
+    /// Configure a text field with placeholder text
     private func configureTextField(_ textField: UITextField, placeholder: String) {
         textField.placeholder = placeholder
         textField.borderStyle = .roundedRect
@@ -103,9 +107,10 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
         textField.delegate = self
         stackView.addArrangedSubview(textField)
     }
-
+    /// Setup the buttons
     private func setupButtons() {
-        configureButton(addButton, title: "Add", action: #selector(addShape))
+        configureButton(addButton, title: "Add", action: #selector(addDimensions))
+        configureButton(calculateButton, title: "Calculate", action: #selector(calculateShapes))  // New calculate button
         configureButton(clearButton, title: "Clear", action: #selector(clearShapes))
 
         let sortStackView = UIStackView()
@@ -126,7 +131,7 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
 
         stackView.addArrangedSubview(sortStackView)
     }
-
+    /// Configure a button with title and action
     private func configureButton(_ button: UIButton, title: String, action: Selector) {
         button.configuration = createButtonConfiguration(title: title)
         button.addTarget(self, action: action, for: .touchUpInside)
@@ -139,14 +144,14 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
 
         resultLabel.textAlignment = .left
     }
-
+    /// Setup the labels
     private func configureLabel(_ label: UILabel, textColor: UIColor = .black) {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = textColor
         stackView.addArrangedSubview(label)
     }
-
+    /// Setup the constraints for stack view
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
@@ -154,7 +159,7 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         ])
     }
-
+    /// Sets up and configures the UITableView with constraints, data source, and delegate
     private func setupListView() {
         listView = UITableView(frame: .zero, style: .plain)
         listView?.translatesAutoresizingMaskIntoConstraints = false
@@ -189,7 +194,8 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
 
     // MARK: - Actions
 
-    @objc private func addShape() {
+    /// This function adds the entered dimensions to the stored dimensions array
+    @objc private func addDimensions() {
         guard let width = Double(widthTextField.text ?? ""),
               let height = Double(heightTextField.text ?? ""),
               width > 0, height > 0 else {
@@ -197,19 +203,35 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
             return
         }
 
-        let rectangle = Rectangle(width: width, height: height)
-        shapes.append(rectangle)
+        storedDimensions.append((width: width, height: height))
 
         clearInputFields()
-        showMessage(.shapeAdded)
-        resultLabel.text = ""
+        showMessage(.dimensionsAdded)
+    }
+
+    /// This function calculates shapes from stored dimensions and adds them to the list view
+    @objc private func calculateShapes() {
+        guard !storedDimensions.isEmpty else {
+            showMessage(.noDimensions)
+            return
+        }
+
+        for dimension in storedDimensions {
+            let rectangle = Rectangle(width: dimension.width, height: dimension.height)
+            shapes.append(rectangle)
+        }
+
+        storedDimensions.removeAll()
         filteredShapes = shapes
         listView?.reloadData()
+        showMessage(.shapesCalculated)
     }
+
     /// This function clears all shapes and refreshes the list view
     @objc private func clearShapes() {
         shapes.removeAll()
         filteredShapes.removeAll()
+        storedDimensions.removeAll()
         listView?.reloadData()
         showMessage(.clearShape)
     }
@@ -220,18 +242,21 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
         filteredShapes = shapes
         listView?.reloadData()
     }
+
     /// This function sorts the shapes in ascending order by area and perimeter, then refreshes the list view
     @objc private func sortShapesAscending() {
         shapes.sort { ($0.area(), $0.perimeter()) < ($1.area(), $1.perimeter()) }
         filteredShapes = shapes
         listView?.reloadData()
     }
+
     /// This function filters the shapes to only show those with even area and perimeter, then refreshes the list view
     @objc private func showEvenShapes() {
         filteredShapes = shapes.filter { isEven($0.area()) && isEven($0.perimeter()) }
         listView?.reloadData()
     }
-    ///  This function filters the shapes to only show those with odd area and perimeter, then refreshes the list view
+
+    /// This function filters the shapes to only show those with odd area and perimeter, then refreshes the list view
     @objc private func showOddShapes() {
         filteredShapes = shapes.filter { !isEven($0.area()) && !isEven($0.perimeter()) }
         listView?.reloadData()
@@ -303,9 +328,10 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
 extension RectangleViewController {
     enum Message: String {
         case invalidInput = "Please enter valid positive numbers for width and height."
-        case shapeAdded = "Shape added successfully."
-        case noShapes = "Please add shapes before calculating."
-        case clearShape = "All shapes were successfully deleted."
+        case dimensionsAdded = "Dimensions added successfully."
+        case noDimensions = "Please add dimensions before calculating."
+        case shapesCalculated = "Shapes calculated and added to the list."
+        case clearShape = "All shapes and dimensions were successfully deleted."
     }
 }
 
