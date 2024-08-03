@@ -71,14 +71,13 @@ class ShapesDetailVC: UIViewController {
         var calculateResult: [[Double]] = []
         for instance in self.squareInstances {
             calculateResult.append([instance.side, instance.area()])
-            self.squareInstances.removeFirst()
         }
         calculateResult = self.filterResult(givenResult: calculateResult)
-        var output: String = "\n"
+        var output: String = ""
         for (index, instance) in calculateResult.enumerated() {
-            output += "\nArea of the \(index + 1)th square is : \(instance[0]) ^ 2 = \(instance[1])"
+            output += "Area of the \(index + 1)th square is : \(instance[0]) ^ 2 = \(instance[1])\n"
         }
-        self.outputTextView.text += output
+        self.outputTextView.text = output
     }
     
 
@@ -87,14 +86,13 @@ class ShapesDetailVC: UIViewController {
         var calculateResult: [[Double]] = []
         for instance in self.squareInstances {
             calculateResult.append([instance.side, instance.perimeter()])
-            self.squareInstances.removeFirst()
         }
         calculateResult = self.filterResult(givenResult: calculateResult)
-        var output: String = "\n"
+        var output: String = ""
         for (index, instance) in calculateResult.enumerated() {
-            output += "\nPerimeter of the \(index + 1)th square is : \(instance[0]) * 4 = \(instance[1])"
+            output += "Perimeter of the \(index + 1)th square is : \(instance[0]) * 4 = \(instance[1])\n"
         }
-        self.outputTextView.text += output
+        self.outputTextView.text = output
     }
     
     
