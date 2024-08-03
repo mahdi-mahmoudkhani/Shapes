@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     
   
     override func viewDidLoad() {
-        
+    
         super.viewDidLoad()
         
     }
@@ -117,37 +117,37 @@ class ViewController: UIViewController {
     @IBAction func oddButtonTapped(_ sender: Any) {
         
         let oddResults = detailedResults.filter { Int($0.result) % 2 != 0 }
-        Show(oddResults)
+        show(oddResults)
     }
     
     
     @IBAction func evenButtonTapped(_ sender: Any) {
         
         let evenResults = detailedResults.filter { Int($0.result) % 2 == 0 }
-        Show(evenResults)
+        show(evenResults)
     }
     
     
     @IBAction func increasingSortTapped(_ sender: Any) {
         
         let inSortedResults = detailedResults.sorted { $0.result < $1.result }
-        Show(inSortedResults)
+        show(inSortedResults)
     }
     
     
     @IBAction func decreasingSortTapped(_ sender: Any) {
         
         let deSortedResults = detailedResults.sorted { $0.result > $1.result }
-        Show(deSortedResults)
+        show(deSortedResults)
     }
     
     
     @IBAction func normalShowButton(_ sender: Any) {
-        Show(detailedResults)
+        show(detailedResults)
     }
     
     
-    func Show( _ results: [(radius: Double, function: String, result: Double)]){
+    func show( _ results: [(radius: Double, function: String, result: Double)]){
         
        // print("Displaying results: \(results)")
         
