@@ -12,13 +12,18 @@ class ViewController: UIViewController {
     var circleModel : [CircleModel] = []
     var segmentIndex : [Int] = []
     var results : [Double] = []
-    
-    var oddResults : [Double] = []
-    var evenResults : [Double] = []
-    var inSortedResults : [Double] = []
-    var deSortedResults : [Double] = []
-    
-    
+//    
+//    var oddResults : [Double] = []
+//    var evenResults : [Double] = []
+//    var inSortedResults : [Double] = []
+//    var deSortedResults : [Double] = []
+//    
+//    func isOdd ( input : Double ) -> Bool{
+//        guard input % 2.0 == 0.0 else {
+//            return true
+//        }else
+//            return true
+//    }
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
@@ -89,15 +94,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func oddButtonTapped(_ sender: Any) {
+        let oddResults = results.filter { Int($0)%2 != 0 }
     }
     
     @IBAction func evenButtonTapped(_ sender: Any) {
+        let evenResults = results.filter { Int($0)%2 == 0 }
     }
     
     @IBAction func increasingSortTapped(_ sender: Any) {
+        let inSortedResults = results.sorted()
     }
     
     @IBAction func decreasingSortTapped(_ sender: Any) {
+        let deSortedResults = results.sorted(by: > )
     }
     
     
