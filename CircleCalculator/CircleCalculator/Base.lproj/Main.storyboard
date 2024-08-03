@@ -24,8 +24,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Enter Radius:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pb-pf-qmv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Radius:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pb-pf-qmv">
                                 <rect key="frame" x="121" y="122" width="151" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -34,76 +35,51 @@
                                 <rect key="frame" x="16" y="-94" width="544" height="335"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwF-NA-aiO">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwF-NA-aiO">
                                 <rect key="frame" x="88.666666666666686" y="228" width="216" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="qVf-Yf-utm"/>
-                                    <constraint firstAttribute="width" constant="216" id="u06-s2-LL8"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="tintColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="ADD"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLR-gA-RJq">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLR-gA-RJq">
                                 <rect key="frame" x="88" y="329" width="216" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="OzM-ht-OuL"/>
-                                    <constraint firstAttribute="width" constant="216" id="m19-hM-PjX"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="CALCULATE"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYX-o6-8Xg">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYX-o6-8Xg">
                                 <rect key="frame" x="88" y="386" width="98" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Ipq-8s-pxc"/>
-                                    <constraint firstAttribute="width" constant="216" id="R9a-C4-FfS"/>
-                                    <constraint firstAttribute="height" constant="39" id="RyJ-AB-BZ4"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemPurpleColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="ODD "/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKl-HO-n6d">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKl-HO-n6d">
                                 <rect key="frame" x="88" y="277" width="216" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="216" id="1jg-Dy-g4e"/>
-                                    <constraint firstAttribute="height" constant="39" id="i2J-o8-0TF"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="RESET"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeH-5w-ndq">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeH-5w-ndq">
                                 <rect key="frame" x="205" y="386" width="99" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="216" id="XYM-Zc-WGh"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="ee4-bE-M8Z"/>
-                                    <constraint firstAttribute="height" constant="39" id="fzs-jQ-5Ui"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemPurpleColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="EVEN"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Boe-8A-kH7">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Boe-8A-kH7">
                                 <rect key="frame" x="105" y="441" width="184" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="2S1-WK-cK6"/>
-                                    <constraint firstAttribute="height" constant="39" id="Lct-oR-BBP"/>
-                                    <constraint firstAttribute="width" constant="216" id="r3E-Hw-BVP"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="SORT(INCREASING)"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNL-Bp-2SZ">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNL-Bp-2SZ">
                                 <rect key="frame" x="105" y="488" width="184" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="0z9-vA-3t3"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="hai-nJ-GQJ"/>
-                                    <constraint firstAttribute="width" constant="216" id="u7x-4J-yNi"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="SORT(DECREASING)"/>
@@ -112,13 +88,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.97254902119999997" green="0.85098040100000005" blue="0.87450981139999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="OKl-HO-n6d" firstAttribute="top" secondItem="wwF-NA-aiO" secondAttribute="bottom" constant="16" id="04M-1V-732"/>
-                            <constraint firstItem="QLR-gA-RJq" firstAttribute="top" secondItem="OKl-HO-n6d" secondAttribute="bottom" constant="16" id="79l-Ew-Igi"/>
-                            <constraint firstItem="4Pb-pf-qmv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RRz-Uz-UPz"/>
                             <constraint firstItem="X3z-U3-Zma" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="98" id="Rcy-Du-Oh4"/>
                             <constraint firstItem="X3z-U3-Zma" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hLw-fo-cnK"/>
-                            <constraint firstItem="MYX-o6-8Xg" firstAttribute="top" secondItem="QLR-gA-RJq" secondAttribute="bottom" constant="18" id="tGL-LU-sfv"/>
-                            <constraint firstItem="wwF-NA-aiO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vJg-2E-mWh"/>
                         </constraints>
                     </view>
                 </viewController>
