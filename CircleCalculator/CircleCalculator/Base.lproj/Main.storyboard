@@ -31,16 +31,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="7a8909101054535 1" translatesAutoresizingMaskIntoConstraints="NO" id="tcH-9A-a9k">
-                                <rect key="frame" x="16" y="-94" width="544" height="335"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwF-NA-aiO">
                                 <rect key="frame" x="88.666666666666686" y="228" width="216" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="tintColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="ADD"/>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LN2-rK-aOt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLR-gA-RJq">
                                 <rect key="frame" x="88" y="329" width="216" height="39"/>
@@ -48,6 +47,9 @@
                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="CALCULATE"/>
+                                <connections>
+                                    <action selector="calculateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uTr-uW-Phc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYX-o6-8Xg">
                                 <rect key="frame" x="88" y="386" width="98" height="39"/>
@@ -55,6 +57,9 @@
                                 <color key="tintColor" systemColor="systemPurpleColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="ODD "/>
+                                <connections>
+                                    <action selector="oddButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o3i-YU-AC7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKl-HO-n6d">
                                 <rect key="frame" x="88" y="277" width="216" height="39"/>
@@ -62,6 +67,9 @@
                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="RESET"/>
+                                <connections>
+                                    <action selector="resetButoonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bKe-ky-FrP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeH-5w-ndq">
                                 <rect key="frame" x="205" y="386" width="99" height="39"/>
@@ -69,6 +77,9 @@
                                 <color key="tintColor" systemColor="systemPurpleColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="EVEN"/>
+                                <connections>
+                                    <action selector="evenButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eCr-rm-hZC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Boe-8A-kH7">
                                 <rect key="frame" x="105" y="441" width="184" height="39"/>
@@ -76,6 +87,9 @@
                                 <color key="tintColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="SORT(INCREASING)"/>
+                                <connections>
+                                    <action selector="increasingSortTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ahz-6S-Niq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNL-Bp-2SZ">
                                 <rect key="frame" x="105" y="488" width="184" height="39"/>
@@ -83,6 +97,9 @@
                                 <color key="tintColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="SORT(DECREASING)"/>
+                                <connections>
+                                    <action selector="decreasingSortTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Veb-Z3-V4D"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -92,6 +109,9 @@
                             <constraint firstItem="X3z-U3-Zma" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hLw-fo-cnK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="X3z-U3-Zma" id="2PE-0s-pPK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,7 +119,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="7a8909101054535 1" width="785" height="581"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
