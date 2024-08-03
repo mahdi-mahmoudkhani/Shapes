@@ -40,6 +40,10 @@ class ShapesDetailVC: UIViewController {
             CalculateArea()
         }
         
+    @IBAction func CleatResultButton(_ sender: Any) {
+        ShowClearationAlert()
+    }
+    
     private func SortSelection() {
         switch SortOption.selectedSegmentIndex {
         case 0 :
@@ -123,6 +127,23 @@ class ShapesDetailVC: UIViewController {
         }
         
         return filterredResult
+    }
+    
+    private func ShowClearationAlert() {
+        
+        let alert = UIAlertController(title: "Warning", message: "Are you sure to clear the result?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Clear", style: .default, handler: {_ in
+            self.handleClear()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func handleClear() {
+        outputTextView.text = "Result will be seen here:"
     }
     
 }
