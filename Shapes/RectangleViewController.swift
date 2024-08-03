@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class RectangleViewController: UIViewController, UITextFieldDelegate {
+class RectangleViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Properties
 
     /// Array to hold shapes
