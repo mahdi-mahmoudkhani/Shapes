@@ -49,6 +49,35 @@ class ViewController: UIViewController {
     
     @IBAction func calculateButtonTapped(_ sender: Any) {
         //after hitting calculate button we make results
+        //if there was any remove it
+        results.removeAll()
+        
+        for (index , circle  ) in circleModel.enumerated(){
+            let segmentindec = segmentIndex[index]
+           
+            switch segmentindec {
+            case 0 :
+                
+                results.append(circle.area())
+                break
+            case 1 :
+                
+                results.append(circle.perimeter())
+                break
+                
+            case 2 :
+                results.append(circle.volume())
+                break
+                
+            case 3 :
+                results.append(circle.sideArea())
+                break
+                
+            default:
+                break
+            }
+            
+        }
         
     }
     
