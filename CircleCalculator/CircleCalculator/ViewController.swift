@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: Any) {
         
-        guard let text = textField.text, !text.isEmpty, let radius = Double(text) else {
+        guard let text = textField.text, !text.isEmpty, let radius = Double(text) , radius > 0 else {
                     // Show alert if input is invalid
                     showAlert(message: "Please enter a valid radius.")
                     return
