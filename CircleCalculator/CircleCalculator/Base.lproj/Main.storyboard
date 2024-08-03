@@ -99,7 +99,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="SORT(INCREASING)"/>
+                                <buttonConfiguration key="configuration" style="filled" title="SORT(INCREASING)" cornerStyle="large"/>
                                 <connections>
                                     <action selector="increasingSortTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ahz-6S-Niq"/>
                                 </connections>
@@ -109,7 +109,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="NORMAL SHOW"/>
+                                <buttonConfiguration key="configuration" style="filled" title="NORMAL SHOW" cornerStyle="large"/>
                                 <connections>
                                     <action selector="increasingSortTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DaA-uy-TEA"/>
                                     <action selector="normalShowButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qrx-Uw-LGO"/>
@@ -120,7 +120,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="SORT(DECREASING)"/>
+                                <buttonConfiguration key="configuration" style="filled" title="SORT(DECREASING)" cornerStyle="large"/>
                                 <connections>
                                     <action selector="decreasingSortTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Veb-Z3-V4D"/>
                                 </connections>
@@ -141,7 +141,7 @@
                                 <rect key="frame" x="16" y="614" width="288" height="224"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image 11" translatesAutoresizingMaskIntoConstraints="NO" id="KbT-50-XqE">

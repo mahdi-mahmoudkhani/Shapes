@@ -33,18 +33,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultTextView: UITextView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
-    
+  
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
     }
     
-    
     @IBAction func addButtonTapped(_ sender: Any) {
         
         guard let text = textField.text, !text.isEmpty, let radius = Double(text) , radius > 0 else {
-            
                     // Show alert if input is invalid
                     showAlert(message: "Please enter a valid radius.")
                     return
