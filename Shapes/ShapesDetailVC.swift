@@ -11,7 +11,8 @@ class ShapesDetailVC: UIViewController {
     
     @IBOutlet weak var sideSizeField: UITextField!
     
-    private (set) var sideSizes: [Double] = []
+    private (set) var squareInstances: [SquareModel] = []
+    @IBOutlet weak var outputTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +26,38 @@ class ShapesDetailVC: UIViewController {
                 ShowInvalidInputAlert()
                 return
             }
-            sideSizes.append(InteredNum)
+            squareInstances.append(SquareModel(side: InteredNum))
             sideSizeField.text = ""
         }
-
+    
+    @IBAction func CalculateAreaButton(_ sender: Any) {
+            if squareInstances.isEmpty {
+                ShowEmptyArrayAlert()
+                return
+            }
+            CalculateArea()
+        }
+        
+    
     private func ShowInvalidInputAlert() {
         let alert = UIAlertController(title: "Invalid Input", message: "Please enter a valid side size.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
+    private func ShowEmptyArrayAlert() {
+            let alert = UIAlertController(title: "Not Any Square", message: "Please enter one side size at least.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+        
+        private func CalculateArea() {
+            var output: String = ""
+            for (index, instance) in squareInstances.enumerated() {
+                output += "Area of the \(index + 1)th square is : \(instance.side) ^ 2 = \(instance.area())\n"
+                squareInstances.removeFirst()
+            }
+            outputTextView.text = output
+        }
+        
 }
