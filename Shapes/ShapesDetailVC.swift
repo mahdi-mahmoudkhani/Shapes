@@ -13,7 +13,8 @@ class ShapesDetailVC: UIViewController {
     
     private (set) var squareInstances: [SquareModel] = []
     @IBOutlet weak var outputTextView: UITextView!
-    
+    @IBOutlet weak var SortOption: UISegmentedControl!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +31,7 @@ class ShapesDetailVC: UIViewController {
         }
     
     @IBAction func CalculateAreaButton(_ sender: Any) {
+            SortSelection()
             if squareInstances.isEmpty {
                 ShowEmptyArrayAlert()
                 return
@@ -37,6 +39,17 @@ class ShapesDetailVC: UIViewController {
             CalculateArea()
         }
         
+    private func SortSelection() {
+        switch SortOption.selectedSegmentIndex {
+        case 0 :
+            squareInstances.sort{ $0.side < $1.side }
+        case 1 :
+            squareInstances.sort{ $0.side > $1.side }
+        default:
+            ()
+        }
+    }
+    
     private func ShowInvalidInputAlert() {
         let alert = UIAlertController(title: "Invalid Input", message: "Please enter a valid side size.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -44,6 +57,7 @@ class ShapesDetailVC: UIViewController {
     }
     
     @IBAction func CalculatePerimeterButton(_ sender: Any) {
+            SortSelection()
             if squareInstances.isEmpty {
                 ShowEmptyArrayAlert()
                 return
@@ -58,18 +72,18 @@ class ShapesDetailVC: UIViewController {
         }
         
     private func CalculateArea() {
-            var output: String = ""
+            var output: String = "\n"
             for (index, instance) in squareInstances.enumerated() {
-                output += "Area of the \(index + 1)th square is : \(instance.side) ^ 2 = \(instance.area())\n"
+                output += "\nArea of the \(index + 1)th square is : \(instance.side) ^ 2 = \(instance.area())"
                 squareInstances.removeFirst()
             }
             outputTextView.text += output
         }
         
     private func CalculatePerimiter() {
-            var output: String = ""
+            var output: String = "\n"
             for (index, instance) in squareInstances.enumerated() {
-                output += "Perimeter of the \(index + 1)th square is : \(instance.side) * 4 = \(instance.perimeter())\n"
+                output += "\nPerimeter of the \(index + 1)th square is : \(instance.side) * 4 = \(instance.perimeter())"
                 squareInstances.removeFirst()
             }
             outputTextView.text += output

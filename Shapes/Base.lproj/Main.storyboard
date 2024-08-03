@@ -92,7 +92,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Result will be seen here" translatesAutoresizingMaskIntoConstraints="NO" id="B8w-Gf-2fj">
-                                <rect key="frame" x="30" y="315" width="333" height="503"/>
+                                <rect key="frame" x="30" y="378" width="333" height="440"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -109,15 +109,30 @@
                                     <action selector="CalculatePerimeterButton:" destination="aGV-Q0-uLs" eventType="touchUpInside" id="XRY-Fk-P9j"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort Options:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHj-Iq-46Y">
+                                <rect key="frame" x="35.000000000000007" y="315" width="85.666666666666686" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="KJ4-y6-tq4">
+                                <rect key="frame" x="30" y="337" width="333" height="32"/>
+                                <segments>
+                                    <segment title="Increasing"/>
+                                    <segment title="Decrasing"/>
+                                    <segment title="Not Sort"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="idk-VD-daT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="XVp-qU-pYG" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="30" id="1uy-I6-oAB"/>
                             <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="FPs-Ce-hxm" secondAttribute="trailing" constant="30" id="3HL-Ga-96D"/>
+                            <constraint firstItem="B8w-Gf-2fj" firstAttribute="top" secondItem="KJ4-y6-tq4" secondAttribute="bottom" constant="10" id="3x6-0d-aXa"/>
                             <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="nS4-N0-ova" secondAttribute="trailing" constant="220" id="4Bm-hX-L6B"/>
-                            <constraint firstItem="B8w-Gf-2fj" firstAttribute="top" secondItem="nS4-N0-ova" secondAttribute="bottom" constant="10" id="4LG-3w-Gl7"/>
                             <constraint firstItem="AH7-yM-atO" firstAttribute="top" secondItem="FPs-Ce-hxm" secondAttribute="bottom" constant="10" id="6vV-u2-MpL"/>
+                            <constraint firstItem="tHj-Iq-46Y" firstAttribute="top" secondItem="nS4-N0-ova" secondAttribute="bottom" constant="10" id="9eJ-bf-Qj9"/>
                             <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="B8w-Gf-2fj" secondAttribute="trailing" constant="30" id="A5p-9b-jEW"/>
                             <constraint firstItem="B8w-Gf-2fj" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="30" id="B0s-ho-Z5T"/>
                             <constraint firstItem="nS4-N0-ova" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="30" id="DB4-bX-3eJ"/>
@@ -126,20 +141,25 @@
                             <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="XVp-qU-pYG" secondAttribute="trailing" constant="30" id="I4v-yJ-Cad"/>
                             <constraint firstItem="FPs-Ce-hxm" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="30" id="N1Z-Zf-1Ug"/>
                             <constraint firstItem="FPs-Ce-hxm" firstAttribute="top" secondItem="XVp-qU-pYG" secondAttribute="bottom" constant="10" id="PK0-BB-xiV"/>
+                            <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="KJ4-y6-tq4" secondAttribute="trailing" constant="30" id="XFY-Fx-UMY"/>
+                            <constraint firstItem="tHj-Iq-46Y" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="35" id="j7S-a0-fqs"/>
                             <constraint firstItem="nS4-N0-ova" firstAttribute="top" secondItem="FPs-Ce-hxm" secondAttribute="bottom" constant="10" id="ktY-ED-gla"/>
                             <constraint firstItem="XVp-qU-pYG" firstAttribute="top" secondItem="idk-VD-daT" secondAttribute="top" constant="10" id="o94-Ka-S8t"/>
+                            <constraint firstItem="KJ4-y6-tq4" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="30" id="rbO-un-Ffh"/>
                             <constraint firstItem="idk-VD-daT" firstAttribute="bottom" secondItem="B8w-Gf-2fj" secondAttribute="bottom" id="wn4-Di-8IW"/>
+                            <constraint firstItem="KJ4-y6-tq4" firstAttribute="top" secondItem="tHj-Iq-46Y" secondAttribute="bottom" constant="5" id="xed-sE-Bic"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lw6-Jo-0p0"/>
                     <connections>
+                        <outlet property="SortOption" destination="KJ4-y6-tq4" id="KB4-UK-ATF"/>
                         <outlet property="outputTextView" destination="B8w-Gf-2fj" id="owF-uF-LTg"/>
                         <outlet property="sideSizeField" destination="XVp-qU-pYG" id="ghy-eH-nEe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u6f-nS-OLs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1953" y="4"/>
+            <point key="canvasLocation" x="1951.9083969465648" y="3.5211267605633805"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="spf-fF-475">
