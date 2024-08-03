@@ -4,7 +4,6 @@
 //
 //  Created by Mahsa on 8/3/24.
 //
-q
 
 import Foundation
 
