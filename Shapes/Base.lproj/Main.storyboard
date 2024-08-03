@@ -91,8 +91,8 @@
                                     <action selector="CalculateAreaButton:" destination="aGV-Q0-uLs" eventType="touchUpInside" id="5gi-cD-qjU"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Result will be seen here" translatesAutoresizingMaskIntoConstraints="NO" id="B8w-Gf-2fj">
-                                <rect key="frame" x="30" y="378" width="333" height="440"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Result will be seen here:" translatesAutoresizingMaskIntoConstraints="NO" id="B8w-Gf-2fj">
+                                <rect key="frame" x="30" y="441" width="333" height="377"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -123,13 +123,26 @@
                                     <segment title="Not Sort"/>
                                 </segments>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result Filter:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZY-VJ-Pan">
+                                <rect key="frame" x="35.000000000000007" y="378" width="80.666666666666686" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="pLz-D4-l9R">
+                                <rect key="frame" x="30" y="400" width="333" height="32"/>
+                                <segments>
+                                    <segment title="Even Nums"/>
+                                    <segment title="Odd Nums"/>
+                                    <segment title="All Nums"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="idk-VD-daT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="XVp-qU-pYG" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="30" id="1uy-I6-oAB"/>
                             <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="FPs-Ce-hxm" secondAttribute="trailing" constant="30" id="3HL-Ga-96D"/>
-                            <constraint firstItem="B8w-Gf-2fj" firstAttribute="top" secondItem="KJ4-y6-tq4" secondAttribute="bottom" constant="10" id="3x6-0d-aXa"/>
                             <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="nS4-N0-ova" secondAttribute="trailing" constant="220" id="4Bm-hX-L6B"/>
                             <constraint firstItem="AH7-yM-atO" firstAttribute="top" secondItem="FPs-Ce-hxm" secondAttribute="bottom" constant="10" id="6vV-u2-MpL"/>
                             <constraint firstItem="tHj-Iq-46Y" firstAttribute="top" secondItem="nS4-N0-ova" secondAttribute="bottom" constant="10" id="9eJ-bf-Qj9"/>
@@ -144,14 +157,21 @@
                             <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="KJ4-y6-tq4" secondAttribute="trailing" constant="30" id="XFY-Fx-UMY"/>
                             <constraint firstItem="tHj-Iq-46Y" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="35" id="j7S-a0-fqs"/>
                             <constraint firstItem="nS4-N0-ova" firstAttribute="top" secondItem="FPs-Ce-hxm" secondAttribute="bottom" constant="10" id="ktY-ED-gla"/>
+                            <constraint firstItem="xZY-VJ-Pan" firstAttribute="top" secondItem="KJ4-y6-tq4" secondAttribute="bottom" constant="10" id="nzm-Md-IcR"/>
                             <constraint firstItem="XVp-qU-pYG" firstAttribute="top" secondItem="idk-VD-daT" secondAttribute="top" constant="10" id="o94-Ka-S8t"/>
+                            <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="pLz-D4-l9R" secondAttribute="trailing" constant="30" id="oYB-44-MUc"/>
+                            <constraint firstItem="pLz-D4-l9R" firstAttribute="top" secondItem="xZY-VJ-Pan" secondAttribute="bottom" constant="5" id="pA6-uS-kAq"/>
                             <constraint firstItem="KJ4-y6-tq4" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="30" id="rbO-un-Ffh"/>
+                            <constraint firstItem="xZY-VJ-Pan" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="35" id="uON-sM-5QN"/>
+                            <constraint firstItem="B8w-Gf-2fj" firstAttribute="top" secondItem="pLz-D4-l9R" secondAttribute="bottom" constant="10" id="wcG-H2-gde"/>
                             <constraint firstItem="idk-VD-daT" firstAttribute="bottom" secondItem="B8w-Gf-2fj" secondAttribute="bottom" id="wn4-Di-8IW"/>
                             <constraint firstItem="KJ4-y6-tq4" firstAttribute="top" secondItem="tHj-Iq-46Y" secondAttribute="bottom" constant="5" id="xed-sE-Bic"/>
+                            <constraint firstItem="pLz-D4-l9R" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="30" id="xm2-IK-NV0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lw6-Jo-0p0"/>
                     <connections>
+                        <outlet property="ResultFilter" destination="pLz-D4-l9R" id="f7r-R1-OFS"/>
                         <outlet property="SortOption" destination="KJ4-y6-tq4" id="KB4-UK-ATF"/>
                         <outlet property="outputTextView" destination="B8w-Gf-2fj" id="owF-uF-LTg"/>
                         <outlet property="sideSizeField" destination="XVp-qU-pYG" id="ghy-eH-nEe"/>

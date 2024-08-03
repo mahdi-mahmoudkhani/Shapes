@@ -14,7 +14,8 @@ class ShapesDetailVC: UIViewController {
     private (set) var squareInstances: [SquareModel] = []
     @IBOutlet weak var outputTextView: UITextView!
     @IBOutlet weak var SortOption: UISegmentedControl!
-
+    @IBOutlet weak var ResultFilter: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,21 +73,56 @@ class ShapesDetailVC: UIViewController {
         }
         
     private func CalculateArea() {
-            var output: String = "\n"
-            for (index, instance) in squareInstances.enumerated() {
-                output += "\nArea of the \(index + 1)th square is : \(instance.side) ^ 2 = \(instance.area())"
+        
+            var calculateResult: [[Double]] = []
+        
+            for instance in squareInstances {
+                calculateResult.append([instance.side, instance.area()])
                 squareInstances.removeFirst()
+            }
+            calculateResult = filterResult(givenResult: calculateResult)
+        
+            var output: String = "\n"
+            for (index, instance) in calculateResult.enumerated() {
+                output += "\nArea of the \(index + 1)th square is : \(instance[0]) ^ 2 = \(instance[1])"
             }
             outputTextView.text += output
         }
         
     private func CalculatePerimiter() {
-            var output: String = "\n"
-            for (index, instance) in squareInstances.enumerated() {
-                output += "\nPerimeter of the \(index + 1)th square is : \(instance.side) * 4 = \(instance.perimeter())"
+        
+            var calculateResult: [[Double]] = []
+        
+            for instance in squareInstances {
+                calculateResult.append([instance.side, instance.perimeter()])
                 squareInstances.removeFirst()
+            }
+            calculateResult = filterResult(givenResult: calculateResult)
+        
+            var output: String = "\n"
+            for (index, instance) in calculateResult.enumerated() {
+                output += "\nPerimeter of the \(index + 1)th square is : \(instance[0]) * 4 = \(instance[1])"
             }
             outputTextView.text += output
         }
+    
+    private func filterResult(givenResult: [[Double]]) -> [[Double]] {
+        
+        let filterredResult: [[Double]]
+        
+        switch ResultFilter.selectedSegmentIndex {
+            
+        case 0:
+            filterredResult = givenResult.filter( { $0[1].truncatingRemainder(dividingBy: 2) == 0 } )
+            
+        case 1:
+            filterredResult = givenResult.filter( { $0[1].truncatingRemainder(dividingBy: 2) == 1 } )
+            
+        default:
+            filterredResult = givenResult
+        }
+        
+        return filterredResult
+    }
     
 }
