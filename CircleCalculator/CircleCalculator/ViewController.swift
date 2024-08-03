@@ -13,6 +13,12 @@ class ViewController: UIViewController {
     var segmentIndex : [Int] = []
     var results : [Double] = []
     
+    var oddResults : [Double] = []
+    var evenResults : [Double] = []
+    var inSortedResults : [Double] = []
+    var deSortedResults : [Double] = []
+    
+    
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
@@ -78,7 +84,7 @@ class ViewController: UIViewController {
             }
             
         }
-        //needs a function to show resluts maybe 
+        //needs a function to show resluts maybe
         
     }
     
