@@ -11,6 +11,7 @@ class RectangleViewController: UIViewController, UITextFieldDelegate, UITableVie
 
     /// Array to hold shapes
     var shapes: [Rectangle] = []
+    var filteredShapes: [Rectangle] = []
 
     // MARK: - UI Elements
 
