@@ -91,13 +91,24 @@
                                     <action selector="CalculateAreaButton:" destination="aGV-Q0-uLs" eventType="touchUpInside" id="5gi-cD-qjU"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Result will be seen here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B8w-Gf-2fj">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Result will be seen here" translatesAutoresizingMaskIntoConstraints="NO" id="B8w-Gf-2fj">
                                 <rect key="frame" x="30" y="315" width="333" height="503"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AH7-yM-atO">
+                                <rect key="frame" x="183" y="265" width="180" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="wTU-Qn-M4w"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Calculate Perimeter"/>
+                                <connections>
+                                    <action selector="CalculatePerimeterButton:" destination="aGV-Q0-uLs" eventType="touchUpInside" id="XRY-Fk-P9j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="idk-VD-daT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -106,9 +117,12 @@
                             <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="FPs-Ce-hxm" secondAttribute="trailing" constant="30" id="3HL-Ga-96D"/>
                             <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="nS4-N0-ova" secondAttribute="trailing" constant="220" id="4Bm-hX-L6B"/>
                             <constraint firstItem="B8w-Gf-2fj" firstAttribute="top" secondItem="nS4-N0-ova" secondAttribute="bottom" constant="10" id="4LG-3w-Gl7"/>
+                            <constraint firstItem="AH7-yM-atO" firstAttribute="top" secondItem="FPs-Ce-hxm" secondAttribute="bottom" constant="10" id="6vV-u2-MpL"/>
                             <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="B8w-Gf-2fj" secondAttribute="trailing" constant="30" id="A5p-9b-jEW"/>
                             <constraint firstItem="B8w-Gf-2fj" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="30" id="B0s-ho-Z5T"/>
                             <constraint firstItem="nS4-N0-ova" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="30" id="DB4-bX-3eJ"/>
+                            <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="AH7-yM-atO" secondAttribute="trailing" constant="30" id="FXB-vr-MCR"/>
+                            <constraint firstItem="AH7-yM-atO" firstAttribute="leading" secondItem="nS4-N0-ova" secondAttribute="trailing" constant="10" id="Hwz-qE-9AE"/>
                             <constraint firstItem="idk-VD-daT" firstAttribute="trailing" secondItem="XVp-qU-pYG" secondAttribute="trailing" constant="30" id="I4v-yJ-Cad"/>
                             <constraint firstItem="FPs-Ce-hxm" firstAttribute="leading" secondItem="idk-VD-daT" secondAttribute="leading" constant="30" id="N1Z-Zf-1Ug"/>
                             <constraint firstItem="FPs-Ce-hxm" firstAttribute="top" secondItem="XVp-qU-pYG" secondAttribute="bottom" constant="10" id="PK0-BB-xiV"/>
