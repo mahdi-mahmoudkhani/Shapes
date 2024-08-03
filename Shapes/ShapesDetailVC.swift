@@ -130,6 +130,10 @@ class ShapesDetailVC: UIViewController {
     private func handleClear() {
         
         self.outputTextView.text = "Result will be shown here:"
+        self.squareInstances.removeAll()
+        self.sideSizeField.text = ""
+        self.resultFilter.selectedSegmentIndex = 2
+        self.sortOption.selectedSegmentIndex = 2
     }
     
     
@@ -151,7 +155,7 @@ class ShapesDetailVC: UIViewController {
     
     private func showClearationAlert() {
         
-        let alert = UIAlertController(title: "Warning", message: "Are you sure to clear the result?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Warning", message: "Are you sure to clear all data?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Clear", style: .default, handler: {_ in
             self.handleClear()
         }))
