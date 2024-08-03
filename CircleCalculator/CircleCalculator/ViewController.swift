@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func functionSegment(_ sender: Any) {
+    }
+    
     @IBOutlet weak var textField: UITextField!
     
     @IBAction func addButtonTapped(_ sender: Any) {

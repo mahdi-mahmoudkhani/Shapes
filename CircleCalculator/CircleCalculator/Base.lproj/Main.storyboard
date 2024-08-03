@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3z-U3-Zma">
-                                <rect key="frame" x="88.666666666666686" y="157" width="216" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3z-U3-Zma">
+                                <rect key="frame" x="88.666666666666686" y="117" width="216" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="216" id="10L-tH-4F1"/>
                                 </constraints>
@@ -25,7 +25,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Radius:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pb-pf-qmv">
-                                <rect key="frame" x="121" y="122" width="151" height="27"/>
+                                <rect key="frame" x="121" y="82" width="151" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="23"/>
                                 <nil key="textColor"/>
@@ -38,7 +38,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="ADD"/>
                                 <connections>
-                                    <action selector="addButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LN2-rK-aOt"/>
+                                    <action selector="addButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uuw-OA-u6t"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLR-gA-RJq">
@@ -68,7 +68,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="RESET"/>
                                 <connections>
-                                    <action selector="resetButoonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bKe-ky-FrP"/>
+                                    <action selector="resetButoonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oXw-5y-I6q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeH-5w-ndq">
@@ -101,6 +101,21 @@
                                     <action selector="decreasingSortTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Veb-Z3-V4D"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZJB-si-Oo0">
+                                <rect key="frame" x="26" y="172" width="341" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93333333730000001" green="0.47450977560000002" blue="0.47058826679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <segments>
+                                    <segment title="Area"/>
+                                    <segment title="Priemeter"/>
+                                    <segment title="Volume"/>
+                                    <segment title="Side Area"/>
+                                </segments>
+                                <color key="tintColor" red="0.93333333730000001" green="0.47450977560000002" blue="0.47058826679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="functionSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="w3n-Zd-uat"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.97254902119999997" green="0.85098040100000005" blue="0.87450981139999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
