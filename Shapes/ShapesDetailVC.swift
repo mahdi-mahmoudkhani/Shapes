@@ -29,7 +29,7 @@ class ShapesDetailVC: UIViewController {
     
     @IBAction func addNumberToArray(_ sender: UIButton) {
         
-        guard let InteredText = self.sideSizeField.text, let InteredNum = Double(InteredText) else {
+        guard let InteredText = self.sideSizeField.text, let InteredNum = Double(InteredText), InteredNum > 0 else {
             self.showInvalidInputAlert()
             
             return
